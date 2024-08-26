@@ -32,11 +32,15 @@ export const IconesRedesSociais = styled.div`
 export const TextoRodape = styled.h5`
   color: #e66767;
   margin: auto;
-  max-width: 480px;
+  max-width: 460px;
   max-height: 24px;
   text-align: center;
   font-weight: 400;
   font-family: Roboto;
   font-size: 10px;
   padding-top: 4rem;
+
+  @media (max-width: 460px) {
+    max-width: 360px;
+  }
 `
