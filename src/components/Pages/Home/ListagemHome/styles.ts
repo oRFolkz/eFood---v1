@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 export const ListagemSection = styled.div`
-  min-width: 1024px;
-  margin: auto;
   display: flex;
-  width: 50%;
+  width: 100%;
+  max-width: 1024px;
   margin: 2rem auto;
   flex-wrap: wrap;
   align-items: center;

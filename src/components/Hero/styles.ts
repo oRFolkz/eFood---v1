@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import heroBackground from '../imgs/HeroBackground/Vector.png'
 
 export const HeroSection = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 400px;
   background-image: url(${heroBackground});
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,4 +30,9 @@ export const TextoApresentacao = styled.h1`
   font-size: 36px;
   line-height: 42px;
   padding-top: 4rem;
+
+  @media (max-width: 425px) {
+    font-size: 28px;
+    width: 80%;
+  }
 `

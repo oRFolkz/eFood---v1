@@ -20,7 +20,7 @@ export const RestauranteStyled = styled.div`
   }
 
   @media (max-width: 425px) {
-    width: 60%;
+    width: 80%;
     margin: auto;
     display: block;
     height: auto;
@@ -92,6 +92,7 @@ export const DescricaoDoPrato = styled.div`
     height: 150px;
   }
   @media (max-width: 425px) {
+    overflow-y: auto;
     width: 90%;
     margin: 1rem 0 0 1rem;
   }
@@ -136,6 +137,7 @@ export const BotaoFechar = styled.button`
   cursor: pointer;
   width: 16px;
   height: 16px;
+  display: none;
 
   @media (max-width: 425px) {
     top: 5px;
