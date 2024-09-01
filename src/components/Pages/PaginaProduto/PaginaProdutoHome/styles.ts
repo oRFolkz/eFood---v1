@@ -3,13 +3,17 @@ import styled from 'styled-components'
 export const RestauranteStyled = styled.div`
   color: #ffff;
   background-color: #e66767;
-  width: 32%;
+  width: 320px;
   position: relative;
   margin-bottom: 1rem;
 
   @media (max-width: 500px) {
-    height: 450px;
+    height: 410px;
     margin: 0 1rem;
+  }
+  @media (max-width: 840px) {
+    width: 340px;
+    margin: 0 0.5rem;
   }
 `
 export const Imagem = styled.div`

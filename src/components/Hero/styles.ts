@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import heroBackground from '../imgs/HeroBackground/Vector.png'
 
 export const HeroSection = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 400px;
   background-image: url(${heroBackground});
   background-size: cover;

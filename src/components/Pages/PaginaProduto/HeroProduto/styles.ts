@@ -13,6 +13,17 @@ export const MaxWidth = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 1200px) {
+    margin: 0 2rem;
+  }
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
 `
 
 export const Logo = styled.div`
@@ -21,7 +32,9 @@ export const Logo = styled.div`
   cursor: pointer;
 `
 
-export const TextoHeroRestaurante = styled.p`
+export const TextoHeroRestaurante = styled.button`
+  background-color: transparent;
+  border: none;
   width: 250px;
   color: #e66767;
   cursor: pointer;
@@ -30,8 +43,15 @@ export const TextoHeroRestaurante = styled.p`
   font-family: Roboto;
   font-size: 18px;
   line-height: 18px;
+
+  @media (max-width: 500px) {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 `
-export const TextoHeroCarrinho = styled.p`
+export const TextoHeroCarrinho = styled.button`
+  background-color: transparent;
+  border: none;
   width: 250px;
   color: #e66767;
   cursor: pointer;
@@ -40,4 +60,9 @@ export const TextoHeroCarrinho = styled.p`
   font-family: Roboto;
   font-size: 18px;
   line-height: 18px;
+
+  @media (max-width: 500px) {
+    text-align: center;
+    margin-top: 1rem;
+  }
 `

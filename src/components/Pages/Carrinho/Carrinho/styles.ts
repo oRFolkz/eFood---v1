@@ -6,7 +6,7 @@ export const Dark = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: rgb(0, 0, 0, 0.8);
 `
 
 export const Background = styled.div`
@@ -21,8 +21,7 @@ export const Background = styled.div`
   z-index: 20;
 
   @media (max-width: 500px) {
-    height: 450px;
-    margin: 0 1rem;
+    width: 250px;
   }
 `
 
@@ -53,6 +52,17 @@ export const BotaoEntrega = styled.button`
   width: 100%;
   padding: 0.5rem;
   margin: auto;
+  font-size: 14px;
+  font-weight: 700;
+`
+
+export const BotaoContinuarAsCompras = styled.button`
+  background-color: #fff;
+  color: #e66767;
+  border: none;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.8rem auto;
   font-size: 14px;
   font-weight: 700;
 `

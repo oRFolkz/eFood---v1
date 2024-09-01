@@ -4,6 +4,7 @@ import {
   ValorFinalDiv,
   ValorTotal,
   ValorDoPedido,
+  BotaoContinuarAsCompras,
   BotaoEntrega
 } from './styles'
 
@@ -21,7 +22,8 @@ function Carrinho() {
           <ValorTotal>Valor Total : </ValorTotal>
           <ValorDoPedido>R$ 182,70</ValorDoPedido>
         </ValorFinalDiv>
-        <BotaoEntrega>Continuar com a entrega</BotaoEntrega>
+        <BotaoEntrega>Continuar a compra</BotaoEntrega>
+        <BotaoContinuarAsCompras>Voltar</BotaoContinuarAsCompras>
       </Background>
     </Dark>
   )

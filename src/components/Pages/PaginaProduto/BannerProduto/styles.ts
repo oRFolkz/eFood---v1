@@ -9,6 +9,7 @@ export const Banner = styled.div`
   padding: 0;
   margin: 0;
   position: relative;
+  z-index: 1;
 
   &::before {
     content: '';
@@ -17,13 +18,17 @@ export const Banner = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
 `
 
 export const MaxWidth = styled.div`
   max-width: 1200px;
   margin: auto;
+
+  @media (max-width: 1200px) {
+    margin: 0 2rem;
+  }
 `
 
 export const TagDoProduto = styled.p`
