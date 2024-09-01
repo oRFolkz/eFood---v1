@@ -1,14 +1,16 @@
+/* import Carrinho from './components/Pages/Carrinho/Carrinho' */
 import './index.css'
-import Hero from './components/Hero'
-import Rodape from './components/Rodape'
-import Listagem from './components/Listagem'
+import ListagemPaginaProduto from './components/Pages/PaginaProduto/ListagemPaginaProduto'
+import ItemEmDestaque from './components/Pages/ItemEmDestaque'
+import Listagem from './components/Pages/Home/ListagemHome'
 
 function App() {
   return (
     <body className="body">
-      <Hero />
       <Listagem />
-      <Rodape />
+      <ListagemPaginaProduto />
+      <ItemEmDestaque />
+      {/* <Carrinho /> */}
     </body>
   )
 }

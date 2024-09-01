@@ -11,10 +11,10 @@ import {
   Categoria
 } from './styles'
 
-import imagemPrato from '../imgs/Pratos/imagemPrato.png'
-import estrela from '../imgs/estrela.png'
+import imagemPrato from '../../../imgs/Pratos/imagemPrato.png'
+import estrela from '../../../imgs/estrela.png'
 
-function Restaurante() {
+function Home() {
   return (
     <RestauranteStyled>
       <Imagem>
@@ -44,4 +44,4 @@ function Restaurante() {
   )
 }
 
-export default Restaurante
+export default Home
