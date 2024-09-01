@@ -19,7 +19,7 @@ export const RestauranteStyled = styled.div`
     margin: auto;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 625px) {
     width: 80%;
     margin: auto;
     display: block;
@@ -46,11 +46,13 @@ export const Imagem = styled.div`
     height: 100%;
   }
 
-  @media (max-width: 425px) {
-    width: 90%;
-    margin: 3rem auto 0 auto;
-    display: block;
-    height: 400px;
+  @media (max-width: 625px) {
+  min-width: auto;
+  margin: 1rem;
+
+    img {
+      width: 100%;
+      height: 100%;
   }
 `
 export const NomeDoPrato = styled.div`
@@ -61,9 +63,9 @@ export const NomeDoPrato = styled.div`
   line-height: 22px;
   margin: 0 0 0 1rem;
 
-  @media (max-width: 425px) {
+  @media (max-width: 625px) {
     width: 100%;
-    margin: 1rem 0 0 1rem;
+    margin: 0 0 0 1rem;
   }
 `
 export const DetalhesDoPrato = styled.div`
@@ -74,9 +76,9 @@ export const DetalhesDoPrato = styled.div`
   max-width: 620px;
   margin-right: 1rem;
 
-  @media (max-width: 425px) {
+  @media (max-width: 625px) {
     width: 100%;
-    margin: 1rem 0 0 1rem;
+    margin: 0;
   }
 `
 
@@ -91,9 +93,7 @@ export const DescricaoDoPrato = styled.div`
     width: 90%;
     height: 150px;
   }
-  @media (max-width: 425px) {
-    overflow-y: auto;
-    width: 90%;
+  @media (max-width: 625px) {
     margin: 1rem 0 0 1rem;
   }
 `
@@ -121,9 +121,9 @@ export const BotaoAddCarrinho = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 625px) {
     width: 90%;
-    margin: 1rem 0 2rem 1rem;
+    margin: 1rem 0 0.5rem 1rem;
   }
 `
 
@@ -137,10 +137,28 @@ export const BotaoFechar = styled.button`
   cursor: pointer;
   width: 16px;
   height: 16px;
-  display: none;
 
-  @media (max-width: 425px) {
+  @media (max-width: 625px) {
+    display: none;
     top: 5px;
     right: 35px;
+  }
+`
+
+export const BotaoVoltar = styled.button`
+  display: none;
+
+  @media (max-width: 625px) {
+    display: block;
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    padding: 6px 0;
+    color: #e66767;
+    background-color: #ffff;
+    width: 220px;
+    width: 90%;
+    margin: 0rem 0rem 1rem 1rem;
   }
 `

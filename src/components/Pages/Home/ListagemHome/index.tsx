@@ -3,7 +3,7 @@ import Home from '../HomeProdutos'
 import Hero from '../../../Hero'
 import Rodape from '../../../Rodape'
 
-function Listagem() {
+function ListagemHome() {
   return (
     <>
       <Hero />
@@ -20,4 +20,4 @@ function Listagem() {
   )
 }
 
-export default Listagem
+export default ListagemHome

@@ -7,6 +7,7 @@ import {
   BotaoAddCarrinho,
   PorcaoPrato,
   Dark,
+  BotaoVoltar,
   BotaoFechar
 } from './styles'
 
@@ -40,6 +41,7 @@ function ItemEmDestaque() {
         <BotaoFechar>
           <img src={botaoFechar} alt="" />
         </BotaoFechar>
+        <BotaoVoltar>Voltar</BotaoVoltar>
       </RestauranteStyled>
     </Dark>
   )
