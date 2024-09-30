@@ -1,12 +1,15 @@
 import { HeroSection, TextoApresentacao, Logo } from './styles'
 import logo from '../imgs/Logo/logo.png'
+import { Link } from 'react-router-dom'
 
-function Hero() {
+function Cabecalho() {
   return (
     <HeroSection>
-      <Logo>
-        <img src={logo} alt="Imagem da Logo" />
-      </Logo>
+      <Link to="/">
+        <Logo>
+          <img src={logo} alt="Imagem da Logo" />
+        </Logo>
+      </Link>
       <TextoApresentacao>
         Viva experiências gastronômicas no conforto da sua casa
       </TextoApresentacao>
@@ -14,4 +17,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Cabecalho

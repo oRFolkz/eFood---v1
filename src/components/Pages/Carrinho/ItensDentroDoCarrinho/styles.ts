@@ -4,15 +4,15 @@ export const CardItemNoCarrinho = styled.div`
   background-color: #ffebd9;
   display: flex;
   margin-bottom: 1rem;
-  height: 100px;
+  height: 120px;
 `
 
 export const Imagem = styled.div`
   margin: 0.5rem;
 
   img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 `
 export const NomeDoPrato = styled.div`

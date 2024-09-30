@@ -3,12 +3,16 @@ import heroBackground from '../../../imgs/HeroBackground/Vector.png'
 
 export const DivHeroProduto = styled.div`
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
   background-image: url(${heroBackground});
 `
 
 export const MaxWidth = styled.div`
   max-width: 1200px;
-  height: 200px;
+  height: 120px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -18,18 +22,12 @@ export const MaxWidth = styled.div`
     margin: 0 2rem;
   }
 
-  @media (max-width: 500px) {
-    display: flex;
+  @media (max-width: 700px) {
+    height: 200px;
     flex-direction: column;
     text-align: center;
     justify-content: center;
   }
-`
-
-export const Logo = styled.div`
-  width: 125px;
-  height: 60px;
-  cursor: pointer;
 `
 
 export const TextoHeroRestaurante = styled.button`
@@ -44,7 +42,7 @@ export const TextoHeroRestaurante = styled.button`
   font-size: 18px;
   line-height: 18px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     text-align: center;
     margin-bottom: 1rem;
   }
@@ -60,8 +58,9 @@ export const TextoHeroCarrinho = styled.button`
   font-family: Roboto;
   font-size: 18px;
   line-height: 18px;
+  cursor: pointer;
 
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     text-align: center;
     margin-top: 1rem;
   }

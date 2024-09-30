@@ -7,22 +7,29 @@ export const RestauranteStyled = styled.div`
   position: relative;
   margin-bottom: 1rem;
 
-  @media (max-width: 500px) {
-    height: 410px;
-    margin: 0 1rem;
+  @media (max-width: 650px) {
+    width: 60%;
+    margin: 1rem;
   }
-  @media (max-width: 840px) {
-    width: 340px;
-    margin: 0 0.5rem;
+  @media (max-width: 650px) {
+    width: 80%;
   }
 `
 export const Imagem = styled.div`
   margin: 0.5rem 0.5rem 0 0.5rem;
+  overflow: hidden;
 
   img {
     width: 100%;
     max-width: 480px;
     height: 220px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      filter: brightness(0.7);
+    }
   }
 `
 export const NomeDoPrato = styled.div`
@@ -46,7 +53,7 @@ export const DescricaoDoPrato = styled.div`
   line-height: 22px;
   padding: 0px 8px;
 `
-export const BotaoAddCarrinho = styled.div`
+export const StyledButton = styled.div`
   font-weight: 700;
   font-size: 14px;
   text-align: center;
@@ -57,7 +64,6 @@ export const BotaoAddCarrinho = styled.div`
 
   &:hover {
     transform: scale(1.03);
-    color: #e66767;
     cursor: pointer;
   }
 `

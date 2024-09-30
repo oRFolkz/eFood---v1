@@ -3,7 +3,7 @@ import heroBackground from '../imgs/HeroBackground/Vector.png'
 
 export const RodapeSection = styled.div`
   width: 100%;
-  height: 300px;
+  height: 220px;
   background-image: url(${heroBackground});
   display: flex;
   align-items: center;
@@ -31,14 +31,14 @@ export const IconesRedesSociais = styled.div`
 
 export const TextoRodape = styled.h5`
   color: #e66767;
-  margin: auto;
+  margin: 0 auto;
   max-width: 460px;
   max-height: 24px;
   text-align: center;
   font-weight: 400;
   font-family: Roboto;
   font-size: 10px;
-  padding-top: 4rem;
+  margin-bottom: 2rem;
 
   @media (max-width: 460px) {
     max-width: 360px;

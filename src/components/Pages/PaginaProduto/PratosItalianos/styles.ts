@@ -1,18 +1,46 @@
 import styled from 'styled-components'
 
-export const RestauranteStyled = styled.div`
+export const ListagemSection = styled.div`
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0rem;
+  background-color: #fff;
+`
+
+export const Dark = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &.visible {
+    display: flex;
+  }
+`
+export const ItemEmDestaque = styled.div`
+  display: none;
   color: #ffff;
   background-color: #e66767;
   width: 1024px;
-  height: 320px;
-  display: flex;
+  height: 340px;
   align-items: center;
   margin: auto;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+
+  &.visible {
+    display: flex;
+  }
 
   @media (max-width: 1020px) {
     width: 90%;
@@ -22,18 +50,8 @@ export const RestauranteStyled = styled.div`
   @media (max-width: 625px) {
     width: 80%;
     margin: auto;
-    display: block;
     height: auto;
   }
-`
-
-export const Dark = styled.div`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgb(0, 0, 0, 0.8);
 `
 
 export const Imagem = styled.div`

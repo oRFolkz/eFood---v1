@@ -3,13 +3,17 @@ import heroBackground from '../imgs/HeroBackground/Vector.png'
 
 export const HeroSection = styled.div`
   width: 100%;
-  height: 400px;
+  height: 250px;
   background-image: url(${heroBackground});
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  @media (max-width: 580px) {
+    height: 300px;
+  }
 `
 
 export const Logo = styled.div`
@@ -29,10 +33,13 @@ export const TextoApresentacao = styled.h1`
   font-family: Roboto;
   font-size: 36px;
   line-height: 42px;
-  padding-top: 4rem;
+  padding-top: 2rem;
 
   @media (max-width: 425px) {
     font-size: 28px;
     width: 80%;
+  }
+  @media (max-width: 350px) {
+    padding-top: 0rem;
   }
 `
