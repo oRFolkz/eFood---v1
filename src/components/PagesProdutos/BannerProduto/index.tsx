@@ -4,8 +4,8 @@ function BannerProduto() {
   return (
     <Banner>
       <MaxWidth>
-        <TagDoProduto>Italiana</TagDoProduto>
-        <NomeDoProduto>La Dolce Vita Trattoria</NomeDoProduto>
+        <TagDoProduto>Teste</TagDoProduto>
+        <NomeDoProduto>Teste</NomeDoProduto>
       </MaxWidth>
     </Banner>
   )

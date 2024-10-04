@@ -9,6 +9,7 @@ export const Dark = styled.div`
   background-color: rgb(0, 0, 0, 0.8);
   z-index: 20;
   display: none;
+  cursor: pointer;
 
   &.visible {
     display: flex;

@@ -20,7 +20,6 @@ export const Logo = styled.div`
   padding-top: 2rem;
   width: 125px;
   height: 60px;
-  cursor: pointer;
 `
 
 export const TextoApresentacao = styled.h1`

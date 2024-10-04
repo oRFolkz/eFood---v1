@@ -1,14 +1,7 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
-  display: flex;
   width: 100%;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  padding: 0rem;
   background-color: #fff;
 `
 
@@ -16,7 +9,7 @@ export const CardRestaurantes = styled.div`
   color: #e66767;
   border: 1px solid #e66767;
   width: 450px;
-  height: 480px;
+  height: 520px;
   position: relative;
 
   @media (max-width: 500px) {
@@ -25,6 +18,15 @@ export const CardRestaurantes = styled.div`
     padding-bottom: 1rem;
   }
 `
+
+export const CardLoop = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1rem 0;
+`
 export const Imagem = styled.div`
   overflow: hidden;
 
@@ -32,7 +34,6 @@ export const Imagem = styled.div`
     width: 100%;
     max-width: 480px;
     height: 300px;
-    object-fit: cover;
     transition: transform 0.3s ease, filter 0.3s ease;
 
     &:hover {
@@ -70,7 +71,7 @@ export const DescricaoDoPrato = styled.div`
   font-size: 14px;
   line-height: 22px;
   padding: 0px 8px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `
 
 export const TagsContainer = styled.div`
@@ -82,7 +83,7 @@ export const TagsContainer = styled.div`
   right: 10px;
 `
 
-export const Tags = styled.div`
+export const TagsTipo = styled.div`
   color: white;
   font-size: 12px;
   font-weight: 700;
@@ -98,17 +99,39 @@ export const Tags = styled.div`
   }
 `
 
-export const StyledLink = styled(Link)`
-  text-decoration: none;
+export const TagsDestaque = styled.div`
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  align-text: center;
+  background-color: #e66767;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid transparent;
+  display: none;
+
+  &.visible {
+    display: flex;
+  }
+
+  &:hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
 `
 
-export const StyledLinkSaibaMais = styled(Link)`
+export const StyledLink = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+`
+
+export const StyledLinkSaibaMais = styled.a`
   text-decoration: none;
   color: white;
   font-size: 14px;
   font-weight: 700;
   background-color: #e66767;
   padding: 8px;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px 0 0 10px;
+  cursor: pointer;
 `

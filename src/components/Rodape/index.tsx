@@ -4,10 +4,10 @@ import instagram from '../imgs/redes/instagram.png'
 import facebook from '../imgs/redes/facebook.png'
 import twitter from '../imgs/redes/twitter.png'
 
-function Hero() {
+function Rodape() {
   return (
     <RodapeSection>
-      <Logo>
+      <Logo to="/">
         <img src={logo} alt="Imagem da Logo" />
       </Logo>
       <IconesRedesSociais>
@@ -24,4 +24,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default Rodape

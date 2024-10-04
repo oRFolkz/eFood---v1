@@ -1,11 +1,24 @@
 import styled from 'styled-components'
 
+export const CardsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 1500px;
+
+  @media (max-width: 650px) {
+  }
+  @media (max-width: 650px) {
+  }
+`
 export const RestauranteStyled = styled.div`
   color: #ffff;
   background-color: #e66767;
-  width: 320px;
+  max-width: 400px;
   position: relative;
-  margin-bottom: 1rem;
+  margin: 1rem;
+  padding: 2px 0;
 
   @media (max-width: 650px) {
     width: 60%;
@@ -52,6 +65,7 @@ export const DescricaoDoPrato = styled.div`
   font-size: 14px;
   line-height: 22px;
   padding: 0px 8px;
+  min-height: 140px;
 `
 export const StyledButton = styled.div`
   font-weight: 700;

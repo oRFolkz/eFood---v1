@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import heroBackground from '../../../imgs/HeroBackground/Vector.png'
+import heroBackground from '../../imgs/HeroBackground/Vector.png'
 
 export const DivHeroProduto = styled.div`
   width: 100%;

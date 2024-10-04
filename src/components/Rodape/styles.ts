@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import heroBackground from '../imgs/HeroBackground/Vector.png'
+import { Link } from 'react-router-dom'
 
 export const RodapeSection = styled.div`
   width: 100%;
@@ -11,7 +12,7 @@ export const RodapeSection = styled.div`
   flex-direction: column;
 `
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   padding-top: 2rem;
   width: 125px;
   height: 60px;

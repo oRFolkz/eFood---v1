@@ -22,6 +22,8 @@ const Carrinho: React.FC<CarrinhoProps> = ({
   carrinhoIsVisible,
   setCarrinhoIsVisible
 }) => {
+  const valorTotal = 'R$ 60,90'
+
   return (
     <Dark
       className={carrinhoIsVisible ? 'visible' : ''}
@@ -29,12 +31,9 @@ const Carrinho: React.FC<CarrinhoProps> = ({
     >
       <Background onClick={(e) => e.stopPropagation()}>
         <ItensDentroDoCarrinho />
-        <ItensDentroDoCarrinho />
-        <ItensDentroDoCarrinho />
-        <ItensDentroDoCarrinho />
         <ValorFinalDiv>
           <ValorTotal>Valor Total : </ValorTotal>
-          <ValorDoPedido>R$ 182,70</ValorDoPedido>
+          <ValorDoPedido>{valorTotal}</ValorDoPedido>
         </ValorFinalDiv>
         <BotaoContinuarAsCompras>Continuar a compra</BotaoContinuarAsCompras>
         <BotaoVoltar onClick={() => setCarrinhoIsVisible(false)}>

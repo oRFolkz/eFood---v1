@@ -1,35 +1,35 @@
 import { useState } from 'react'
 
 import {
+  ListagemSection,
+  ItemEmDestaque,
+  Imagem,
+  DetalhesDoPrato,
+  NomeDoPrato,
+  DescricaoDoPrato,
+  PorcaoPrato,
   BotaoAddCarrinho,
   BotaoFechar,
   BotaoVoltar,
-  Dark,
-  DescricaoDoPrato,
-  DetalhesDoPrato,
-  Imagem,
-  ItemEmDestaque,
-  ListagemSection,
-  NomeDoPrato,
-  PorcaoPrato
+  Dark
 } from './styles'
-import BannerJapones from '../BannerJapones'
+import BannerItaliano from '../BannerProduto'
 import PratosDiversos from '../PratosDiversos'
-import HeroProduto from '../HeroProduto'
-import Rodape from '../../../Rodape'
+import HeroProduto from '../Hero'
+import Rodape from '../../Rodape'
 
 import imagemPrato from '../../../imgs/Pratos/imagemPrato3.png'
 import botaoFechar from '../../../imgs/close.png'
 
-function PratosJaponeses() {
+function PratoEmDestaque() {
   const [detailIsVisible, setDetailIsVisible] = useState(false)
 
   return (
     <>
       <HeroProduto />
-      <BannerJapones />
+      <BannerItaliano />
       <ListagemSection>
-        <PratosDiversos setDetailIsVisible={setDetailIsVisible} />
+        <PratosDiversos />
       </ListagemSection>
       <Rodape />
       <Dark className={detailIsVisible ? 'visible' : ''} />
@@ -63,4 +63,4 @@ function PratosJaponeses() {
   )
 }
 
-export default PratosJaponeses
+export default PratoEmDestaque
