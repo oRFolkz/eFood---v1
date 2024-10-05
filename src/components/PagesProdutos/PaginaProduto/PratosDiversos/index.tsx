@@ -66,7 +66,7 @@ const PratosDiversos = () => {
     }
   }, [restaurantesAPI])
 
-  const [detailIsVisible, setDetailIsVisible] = useState(true)
+  const [detailIsVisible, setDetailIsVisible] = useState(false)
 
   return (
     <>

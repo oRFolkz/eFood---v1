@@ -23,7 +23,7 @@ export const MaxWidth = styled.div`
   }
 
   @media (max-width: 700px) {
-    height: 200px;
+    height: 150px;
     flex-direction: column;
     text-align: center;
     justify-content: center;

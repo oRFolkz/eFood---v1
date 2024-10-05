@@ -22,7 +22,7 @@ export const Banner = styled.div`
     z-index: -1;
   }
   @media (max-width: 700px) {
-    margin: 12rem 0 0 0;
+    margin: 9rem 0 0 0;
   }
 `
 

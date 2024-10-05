@@ -23,7 +23,7 @@ export const ItemEmDestaque = styled.div`
   align-items: center;
   margin: auto;
   position: fixed;
-  top: 62%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -112,7 +112,7 @@ export const DescricaoDoPratoDestaque = styled.div`
   }
   @media (max-width: 640px) {
     margin: 1rem 0 0 1rem;
-    height: 150px;
+    height: 200px;
   }
 `
 
