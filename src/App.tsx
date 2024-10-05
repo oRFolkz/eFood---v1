@@ -3,7 +3,7 @@ import { GlobalCss } from './styles'
 
 import './index.css'
 import Home from './components/Home'
-import PratosDiversos from './components/PagesProdutos/PratosDiversos'
+import PratosDiversos from './components/PagesProdutos/PaginaProduto/PratosDiversos'
 
 const Rotas = () => (
   <Routes>

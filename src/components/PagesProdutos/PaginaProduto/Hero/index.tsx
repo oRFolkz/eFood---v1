@@ -7,8 +7,8 @@ import {
   MaxWidth,
   TextoHeroCarrinho
 } from './styles'
-import logo from '../../imgs/Logo/logo.png'
-import Carrinho from '../../PagesCarrinho/Carrinho/Carrinho'
+import logo from '../../../imgs/Logo/logo.png'
+import Carrinho from '../../../PagesCarrinho/Carrinho/Carrinho'
 
 function HeroProduto() {
   const [carrinhoIsVisible, setCarrinhoIsVisible] = useState(false)
