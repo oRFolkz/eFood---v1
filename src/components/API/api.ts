@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react'
 
+export interface CardapioItem {
+  foto: string;
+  preco: number;
+  id: number;
+  nome: string;
+  descricao: string;
+  porcao: string;
+}
+
 export interface Restaurante {
   id: number
   avaliacao: number
@@ -9,7 +18,7 @@ export interface Restaurante {
   titulo: string
   descricao: string
   destacado: boolean
-  cardapio: string
+  cardapio: CardapioItem[]
   foto: string
   preco: number
   porcao: number

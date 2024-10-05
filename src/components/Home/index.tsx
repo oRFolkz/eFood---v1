@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   CardRestaurantes,
   Imagem,
@@ -77,7 +79,7 @@ export function Home() {
                   </TagsDestaque>
                 </StyledLink>
                 <StyledLink>
-                  <TagsTipo onClick={() => OnClickCheckID(restaurantes.tipo)}>
+                  <TagsTipo onClick={() => OnClickCheckID(restaurantes.id)}>
                     {restaurantes.tipo}
                   </TagsTipo>
                 </StyledLink>

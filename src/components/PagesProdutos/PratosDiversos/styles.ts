@@ -189,7 +189,9 @@ export const CardsContainer = styled.div`
   max-width: 1500px;
 
   &.detalhesOpen {
-    position: fixed;
+    @media (max-width: 640px) {
+      position: fixed;
+    }
   }
 `
 export const RestauranteStyled = styled.div`
