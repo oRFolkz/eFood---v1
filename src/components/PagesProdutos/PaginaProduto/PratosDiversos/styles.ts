@@ -188,9 +188,8 @@ export const CardsContainer = styled.div`
   margin: auto;
   max-width: 1500px;
 
-  @media (max-width: 650px) {
-  }
-  @media (max-width: 650px) {
+  &.detalhesOpen {
+    position: fixed;
   }
 `
 export const RestauranteStyled = styled.div`
@@ -201,12 +200,9 @@ export const RestauranteStyled = styled.div`
   margin: 1rem;
   padding: 2px 0;
 
-  @media (max-width: 650px) {
-    width: 60%;
-    margin: 1rem;
-  }
-  @media (max-width: 650px) {
+  @media (max-width: 640px) {
     width: 80%;
+    margin: 1rem;
   }
 `
 export const Imagem = styled.div`

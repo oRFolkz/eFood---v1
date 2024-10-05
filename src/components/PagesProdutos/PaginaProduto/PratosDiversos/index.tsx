@@ -104,10 +104,10 @@ const PratosDiversos = () => {
           Voltar
         </BotaoVoltarDestaque>
       </ItemEmDestaque>
-      <CardsContainer>
+      <CardsContainer className={detailIsVisible ? 'detalhesOpen' : ''}>
         {cardapio.map((pratos) => (
           <RestauranteStyled key={pratos.id}>
-            <Imagem>
+            <Imagem onClick={() => setDetailIsVisible(true)}>
               <img src={pratos.foto} alt="Pizza Marguerita" />
             </Imagem>
             <DetalhesDoPrato>
