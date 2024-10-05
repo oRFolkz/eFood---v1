@@ -1,3 +1,4 @@
+import React from 'react'
 import { Banner, NomeDoProduto, TagDoProduto, MaxWidth } from './styles'
 import { useParams } from 'react-router-dom'
 
