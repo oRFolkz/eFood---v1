@@ -1,3 +1,4 @@
+import React from 'react'
 import { HeroSection, TextoApresentacao, Logo } from './styles'
 import logo from '../imgs/Logo/logo.png'
 
