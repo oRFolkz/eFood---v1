@@ -14,6 +14,9 @@ export const HeroSection = styled.div`
   @media (max-width: 580px) {
     height: 300px;
   }
+  @media (max-width: 425px) {
+    height: 220px;
+  }
 `
 
 export const Logo = styled.div`
@@ -37,8 +40,10 @@ export const TextoApresentacao = styled.h1`
   @media (max-width: 425px) {
     font-size: 28px;
     width: 80%;
+    line-height: 30px;
+    margin-top: 1rem;
   }
   @media (max-width: 350px) {
-    padding-top: 0rem;
+    padding-top: 1rem;
   }
 `

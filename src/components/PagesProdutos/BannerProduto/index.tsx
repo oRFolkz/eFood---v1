@@ -1,14 +1,24 @@
-import React from 'react'
 import { Banner, NomeDoProduto, TagDoProduto, MaxWidth } from './styles'
-import { useParams } from 'react-router-dom'
+import API from '../../API/api'
+import { useRestaurant } from '../../Providers/RestauranteIDProvider/RestauranteIDProvider'
+import { useEffect, useState } from 'react'
 
 function BannerProduto() {
-  const { title } = useParams()
-  const tipo = String(title).toLocaleUpperCase()
+  const { restaurantesAPI } = API()
+  const { idRestaurante } = useRestaurant()
+  const [tipoDoRestaurante, setTipoDoRestaurante] = useState<string>('')
+
+  useEffect(() => {
+    if (restaurantesAPI.length > 0) {
+      const grabTipoDoRestaurante = restaurantesAPI[(Number(idRestaurante) - 1)].tipo
+      setTipoDoRestaurante(grabTipoDoRestaurante)
+    }
+  }, [restaurantesAPI, tipoDoRestaurante])
+
   return (
     <Banner>
       <MaxWidth>
-        <TagDoProduto>{tipo}</TagDoProduto>
+        <TagDoProduto>{tipoDoRestaurante ? tipoDoRestaurante : 'carregando...'}</TagDoProduto>
         <NomeDoProduto>La dolce vita trattoria</NomeDoProduto>
       </MaxWidth>
     </Banner>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { RodapeSection, IconesRedesSociais, TextoRodape, Logo } from './styles'
 import logo from '../imgs/Logo/logo.png'
 import instagram from '../imgs/redes/instagram.png'

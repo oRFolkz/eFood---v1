@@ -9,7 +9,6 @@ export const Dark = styled.div`
   background-color: rgb(0, 0, 0, 0.8);
   z-index: 20;
   display: none;
-  cursor: pointer;
 
   &.visible {
     display: flex;
@@ -56,8 +55,9 @@ export const BotaoVoltar = styled.button`
   color: #e66767;
   border: none;
   width: 100%;
+  height: 40px;
   padding: 0.5rem;
-  margin: auto;
+  margin: 0.8rem auto;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -68,8 +68,64 @@ export const BotaoContinuarAsCompras = styled.button`
   color: #e66767;
   border: none;
   width: 100%;
+  height: 40px;
   padding: 0.5rem;
-  margin: 0.8rem auto;
+  margin-top: 0.8rem;
   font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
+`
+
+export const CardItemNoCarrinho = styled.div`
+  background-color: #ffebd9;
+  display: flex;
+  margin-bottom: 1rem;
+  height: 120px;
+`
+
+export const Imagem = styled.div`
+  margin: 0.5rem;
+
+  img {
+    width: 120px;
+    height: 100%;
+  }
+`
+
+export const DetalhesDoPrato = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`
+
+export const NomeDoPrato = styled.div`
+  margin: 0.5rem 0 0 0.5rem;
+  color: #e66767;
+  font-size: 1rem;
+  font-weight: bold;
+`
+
+export const ValorDoPrato = styled.div`
+  margin-top: 0.5rem;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 0px 8px;
+  color: #e66767;
+`
+
+export const BotaoRemoverItemCarrinho = styled.div`
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+`
+
+export const EmptyCart = styled.p`
+  color: white;
+  margin-bottom: 1rem;
 `

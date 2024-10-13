@@ -12,6 +12,10 @@ export const CardDadosFinalizado = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+
+  &.visible {
+    display: none;
+  }
 `
 
 export const TextoFinalizado = styled.p`
@@ -29,6 +33,7 @@ export const MensagemFinal = styled.div`
 
 export const BotaoVoltar = styled.button`
   width: 100%;
+  height: 40px;
   color: #e66767;
   font-weight: 700;
   font-size: 14px;

@@ -1,14 +1,5 @@
 import { useEffect, useState } from 'react'
 
-export interface CardapioItem {
-  foto: string;
-  preco: number;
-  id: number;
-  nome: string;
-  descricao: string;
-  porcao: string;
-}
-
 export interface Restaurante {
   id: number
   avaliacao: number
@@ -24,23 +15,42 @@ export interface Restaurante {
   porcao: number
 }
 
-export function API() {
-  const [restaurantesAPI, setRestaurantesAPI] = useState<Restaurante[]>([])
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Erro ao buscar os dados')
-        }
-        return response.json()
-      })
-      .then((data: Restaurante[]) => {
-        setRestaurantesAPI(data)
-      })
-  }, [])
-
-  return { restaurantesAPI }
+export interface CardapioItem {
+  foto: string;
+  preco: number;
+  id: number;
+  nome: string;
+  descricao: string;
+  porcao: string;
 }
 
-export default API
+export function API() {
+  const [restaurantesAPI, setRestaurantesAPI] = useState<Restaurante[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro ao buscar os dados');
+        }
+        return response.json();
+      })
+      .then((data: Restaurante[]) => {
+        setRestaurantesAPI(data);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []); // Empty dependency array, fetches data only once on mount
+
+  return { restaurantesAPI, isLoading, error };
+}
+
+export default API;

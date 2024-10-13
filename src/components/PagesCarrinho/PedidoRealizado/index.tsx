@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   CardDadosFinalizado,
   TextoFinalizado,
@@ -6,10 +5,28 @@ import {
   MensagemFinal
 } from './styles'
 
-function PedidoRealizado() {
+import { useCart } from '../../Providers/CartProvider/CartProvider'
+
+interface PedidoRealizadoProps {
+  pedidoRealizadoVisible: boolean
+  setPedidoRealizadoVisible: React.Dispatch<React.SetStateAction<boolean>>
+  setCarrinhoIsVisible: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const PedidoRealizado: React.FC<PedidoRealizadoProps> = ({
+  // eslint-disable-next-line react/prop-types
+  pedidoRealizadoVisible,
+  // eslint-disable-next-line react/prop-types
+  setPedidoRealizadoVisible,
+  // eslint-disable-next-line react/prop-types
+  setCarrinhoIsVisible
+}) => {
+  const { emptyCart } = useCart()
+
+  const orderID = 1
   return (
-    <CardDadosFinalizado>
-      <TextoFinalizado>Pedido realizado - ORDER_ID</TextoFinalizado>
+    <CardDadosFinalizado className={pedidoRealizadoVisible ? '' : 'visible'}>
+      <TextoFinalizado>Pedido realizado - ID: {orderID}</TextoFinalizado>
       <MensagemFinal>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.
@@ -26,7 +43,11 @@ function PedidoRealizado() {
         Esperamos que desfrute de uma deliciosa e agradável experiência
         gastronômica. Bom apetite!
       </MensagemFinal>
-      <BotaoVoltar>Concluir</BotaoVoltar>
+      <BotaoVoltar onClick={() => {
+        setPedidoRealizadoVisible(false)
+        setCarrinhoIsVisible(false)
+        emptyCart()
+      }}>Concluir</BotaoVoltar>
     </CardDadosFinalizado>
   )
 }

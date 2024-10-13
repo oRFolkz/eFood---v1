@@ -14,79 +14,108 @@ export const CardDadosEntrega = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+
+  &.visible {
+    display: none;
+  }
 `
 
 export const TextoEntrega = styled.p`
-  margin-bottom: 0.2rem;
+  margin: 0.8rem 0 0.2rem 0;
 `
-export const TextaAreaNome = styled.textarea`
+
+export const TextaAreaNome = styled.input.attrs({
+  type: 'text'
+})`
+  border: none;
   background-color: #ffebd9;
-  margin: auto;
-  width: 95%;
-  height: 28px;
+  width: 100%;
+  height: 30px;
   font-weight: 700;
   font-size: 16px;
   color: #4b4b4b;
-  padding: 0.5rem 0 0 1rem;
+  padding: 0 0 0 1rem;
   resize: none;
 `
-export const TextaAreaEndereco = styled.textarea`
+
+export const TextaAreaEndereco = styled.input.attrs({
+  type: 'text'
+})`
+  border: none;
   background-color: #ffebd9;
   margin: auto;
-  width: 95%;
-  height: 28px;
+  width: 100%;
+  height: 30px;
   font-weight: 700;
   font-size: 16px;
   color: #4b4b4b;
-  padding: 0.5rem 0 0 1rem;
+  padding: 0 0 0 1rem;
   resize: none;
 `
-export const TextaAreaCidade = styled.textarea`
+
+export const TextaAreaCidade = styled.input.attrs({
+  type: 'text'
+})`
+  border: none;
   background-color: #ffebd9;
   margin: auto;
-  width: 95%;
-  height: 28px;
+  width: 100%;
+  height: 30px;
   font-weight: 700;
   font-size: 16px;
   color: #4b4b4b;
-  padding: 0.5rem 0 0 1rem;
+  padding: 0 0 0 1rem;
   resize: none;
 `
-export const TextaAreaCEP = styled.textarea`
+
+export const TextaAreaCEP = styled.input.attrs({
+  type: 'text'
+})`
+  border: none;
   background-color: #ffebd9;
   margin: auto;
   width: 70%;
-  height: 28px;
+  height: 30px;
   font-weight: 700;
   font-size: 16px;
   color: #4b4b4b;
-  padding: 0.5rem 0 0 1rem;
+  padding: 0 0 0 1rem;
   resize: none;
 `
-export const TextaAreaNumero = styled.textarea`
+
+export const TextaAreaNumero = styled.input.attrs({
+  type: 'text'
+})`
+  border: none;
   background-color: #ffebd9;
   margin: auto;
-  width: 90%;
-  height: 28px;
+  width: 100%;
+  height: 30px;
   font-weight: 700;
   font-size: 16px;
   color: #4b4b4b;
-  padding: 0.5rem 0 0 1rem;
+  padding: 0 0 0 1rem;
   resize: none;
 `
-export const TextaAreaComplemento = styled.textarea`
+
+export const TextaAreaComplemento = styled.input.attrs({
+  type: 'text'
+})`
+  border: none;
   background-color: #ffebd9;
   margin: auto;
-  width: 95%;
-  height: 28px;
+  width: 100%;
+  height: 30px;
   font-weight: 700;
   font-size: 16px;
   color: #4b4b4b;
-  padding: 0.5rem 0 0 1rem;
+  padding: 0 0 0 1rem;
   resize: none;
 `
+
 export const BotaoContinuar = styled.button`
   width: 100%;
+  height: 40px;
   color: #e66767;
   font-weight: 700;
   font-size: 14px;
@@ -98,6 +127,7 @@ export const BotaoContinuar = styled.button`
 `
 export const BotaoVoltar = styled.button`
   width: 100%;
+  height: 40px;
   color: #e66767;
   font-weight: 700;
   font-size: 14px;

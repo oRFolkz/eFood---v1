@@ -14,9 +14,19 @@ import {
   TextAlign
 } from './styles'
 
-function DadosEntrega() {
+interface DadosEntregaProps {
+  dadosEntregaVisible: boolean
+  setDadosEntregaVisible: React.Dispatch<React.SetStateAction<boolean>>
+  setDadosPagamentoVisible: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const DadosEntrega: React.FC<DadosEntregaProps> = ({
+  dadosEntregaVisible,
+  setDadosEntregaVisible,
+  setDadosPagamentoVisible
+}) => {
   return (
-    <CardDadosEntrega>
+    <CardDadosEntrega className={dadosEntregaVisible ? '' : 'visible'}>
       <TextoEntrega>Entrega</TextoEntrega>
       <TextoEntrega>Quem irá receber</TextoEntrega>
       <TextaAreaNome></TextaAreaNome>
@@ -38,8 +48,13 @@ function DadosEntrega() {
       </DisplayFlex>
       <TextoEntrega>Complemento</TextoEntrega>
       <TextaAreaComplemento></TextaAreaComplemento>
-      <BotaoContinuar>Continuar com o pagamento</BotaoContinuar>
-      <BotaoVoltar>Voltar para o carrinho</BotaoVoltar>
+      <BotaoContinuar onClick={() => {
+        setDadosEntregaVisible(false)
+        setDadosPagamentoVisible(true)
+        }}>Continuar com o pagamento</BotaoContinuar>
+      <BotaoVoltar onClick={() => {
+        setDadosEntregaVisible(false)
+        }}>Voltar para o carrinho</BotaoVoltar>
     </CardDadosEntrega>
   )
 }

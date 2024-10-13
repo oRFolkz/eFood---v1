@@ -1,9 +1,12 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
-export const Container = styled.div`
-  width: 100%;
-  background-color: #fff;
+export const CardLoop = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1rem 0;
 `
 
 export const CardRestaurantes = styled.div`
@@ -23,43 +26,45 @@ export const CardRestaurantes = styled.div`
   }
 `
 
-export const CardLoop = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  padding: 1rem 0;
-`
 export const Imagem = styled.div`
+  margin: 0rem;
   overflow: hidden;
 
   img {
     width: 100%;
     max-width: 480px;
-    height: 300px;
+    height: 280px;
     transition: transform 0.3s ease, filter 0.3s ease;
 
     &:hover {
+      cursor: pointer;
       transform: scale(1.2);
       filter: brightness(0.7);
     }
   }
 `
-export const NomeDoPrato = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  padding: 5px 8px;
+
+export const StyledLink = styled.a`
+  text-decoration: none;
+  cursor: pointer;
 `
+
 export const DetalhesDoPrato = styled.div`
+  margin: 0rem 0.5rem 0 0.5rem;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
 `
+
+export const NomeDoPrato = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 5px 8px;
+`
+
 export const Nota = styled.div`
   font-weight: 700;
   font-size: 18px;
@@ -70,12 +75,24 @@ export const Nota = styled.div`
     height: 16px;
   }
 `
+
 export const DescricaoDoPrato = styled.div`
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
   padding: 0px 8px;
-  margin-bottom: 20px;
+  min-height: 140px;
+`
+
+export const StyledLinkSaibaMais = styled.a`
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #e66767;
+  padding: 8px;
+  margin: 10px 0 0 10px;
+  cursor: pointer;
 `
 
 export const TagsContainer = styled.div`
@@ -85,22 +102,6 @@ export const TagsContainer = styled.div`
   position: absolute;
   top: 0px;
   right: 10px;
-`
-
-export const TagsTipo = styled.div`
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  align-text: center;
-  background-color: #e66767;
-  padding: 5px;
-  margin-top: 5px;
-  border: 1px solid transparent;
-
-  &:hover {
-    border: 1px solid white;
-    cursor: pointer;
-  }
 `
 
 export const TagsDestaque = styled.div`
@@ -124,28 +125,26 @@ export const TagsDestaque = styled.div`
   }
 `
 
-export const LinkToDestaque = styled(Link)`
-text-decoration: none;
-cursor: pointer;
-`
-
-export const StyledLink = styled.a`
-  text-decoration: none;
-  cursor: pointer;
-`
-
-export const StyledLinkSaibaMais = styled.a`
-  text-decoration: none;
+export const TagsTipo = styled.div`
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
+  align-text: center;
   background-color: #e66767;
-  padding: 8px;
-  margin: 10px 0 0 10px;
-  cursor: pointer;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
 `
 
-export const MsgErro = styled.p`
+export const LoadingMsg = styled.p`
   color: #e66767;
-  font-size: 2rem;
+  font-size: 1.5rem;
 `
+
+
+

@@ -1,5 +1,3 @@
-import React from 'react'; // Importando React
-import botaoFechar from '../../imgs/close.png';
 import {
   RestauranteStyled,
   Imagem,
@@ -20,64 +18,57 @@ import {
   DarkDestaque,
 } from './styles';
 
-import HeroProduto from '../Hero';
-import BannerProduto from '../BannerProduto';
-import API from '../../API/api';
-import Rodape from '../../Rodape';
-import { useEffect, useState } from 'react';
+import API, { CardapioItem } from '../../API/api'
+import { useEffect, useState } from 'react'
+import { useCart } from '../../Providers/CartProvider/CartProvider';
+import { useRestaurant } from '../../Providers/RestauranteIDProvider/RestauranteIDProvider'
 
-interface CardapioItem {
-  foto: string;
-  preco: number;
-  id: number;
-  nome: string;
-  descricao: string;
-  porcao: string;
-}
+import HeroProduto from '../Hero'
+import BannerProduto from '../BannerProduto'
+import botaoFechar from '../../imgs/close.png'
 
-const PratosDiversos = () => {
+export function PratosDiversos() {
   const { restaurantesAPI } = API()
-  const [selectedRestaurante, setSelectedRestaurante] = useState<number | null>(null)
-  const [idPratoDestacado, setIdPratoDestacado] = useState<number | null>(null)
-  const [cardapio, setCardapio] = useState<CardapioItem[]>([])
-  const [cardapioDestaque, setCardapioDestaque] = useState<CardapioItem | null>(null)
-  const [detailIsVisible, setDetailIsVisible] = useState(false)
+  const { idRestaurante } = useRestaurant()
+  const { addToCart } = useCart()
 
-  const showID = (id: number) => {
-    localStorage.setItem('selectedPrato', String(id))
-    console.log(`ID Prato ${idPratoDestacado}`)
-    console.log(`ID Restaurante ${selectedRestaurante}`)
+  const [detailIsVisible, setDetailIsVisible] = useState(false)
+  const [cardapioDestaque, setCardapioDestaque] = useState<CardapioItem | null>(null)
+  const [cardapio, setCardapio] = useState<CardapioItem[]>([])
+  const [idPrato, setIdPrato] = useState(Number)
+
+  const OnClickGrabID = (prato: CardapioItem) => {
+    setIdPrato(prato.id)
+
+    const cartItem = {
+      id: prato.id,
+      name: prato.nome,
+      price: prato.preco,
+      image: prato.foto,
+      description: prato.descricao,
+    }
+    addToCart(cartItem)
   }
 
   useEffect(() => {
-    const storedIdRestaurante = localStorage.getItem('selectedRestaurante')
-    const idRestaurante = storedIdRestaurante ? Number(storedIdRestaurante) : null
-    setSelectedRestaurante(idRestaurante)
-    const storedIdPrato = localStorage.getItem('selectedPrato')
-    const idPrato = storedIdPrato ? Number(storedIdPrato) : null
-    setIdPratoDestacado(idPrato)
-
-    if (idRestaurante !== null) {
+    if (idRestaurante) {
       const restaurant = restaurantesAPI.find(
         (restaurante) => restaurante.id === idRestaurante
       )
+      if (restaurant && Array.isArray(restaurant.cardapio)) {
+        setCardapio(restaurant.cardapio)
 
-      if (restaurant) {
-        if (Array.isArray(restaurant.cardapio)) {
-          setCardapio(restaurant.cardapio)
-
-          if (idPrato !== null) {
-            const pratoDestaque = restaurant.cardapio.find(
-              (prato) => prato.id === idPrato
-            )
-            if (pratoDestaque) {
-              setCardapioDestaque(pratoDestaque)
-            }
+        if (idPrato) {
+          const pratoDestaque = restaurant.cardapio.find(
+            (prato) => prato.id === idPrato
+          )
+          if (pratoDestaque) {
+            setCardapioDestaque(pratoDestaque)
           }
         }
       }
     }
-  }, [restaurantesAPI, showID])
+  }, [idRestaurante, idPrato, restaurantesAPI])
 
   return (
     <>
@@ -103,7 +94,8 @@ const PratosDiversos = () => {
             <PorcaoPratoDestaque>
               Serve: {cardapioDestaque.porcao}
             </PorcaoPratoDestaque>
-            <BotaoAddCarrinhoDestaque>
+            <BotaoAddCarrinhoDestaque onClick={() =>
+              OnClickGrabID(cardapioDestaque)}>
               Adicionar ao carrinho - R${cardapioDestaque.preco.toFixed(2)}
             </BotaoAddCarrinhoDestaque>
           </DetalhesDoPratoDestaque>
@@ -118,20 +110,24 @@ const PratosDiversos = () => {
       <CardsContainer className={detailIsVisible ? 'detalhesOpen' : ''}>
         {cardapio.map((pratos) => (
           <RestauranteStyled key={pratos.id}>
-            <Imagem onClick={() => {
-                  showID(pratos.id)
-                  setDetailIsVisible(true)
-                }}>
+            <Imagem
+              onClick={() => {
+                setIdPrato(pratos.id);
+                setDetailIsVisible(true);
+              }}
+            >
               <img src={pratos.foto} alt={pratos.nome} />
             </Imagem>
             <DetalhesDoPrato>
               <NomeDoPrato>{pratos.nome}</NomeDoPrato>
               <DescricaoDoPrato>{pratos.descricao}</DescricaoDoPrato>
-              <StyledButton>Adicionar ao carrinho</StyledButton>
+              <StyledButton onClick={() => OnClickGrabID(pratos)}>
+                Adicionar ao carrinho
+              </StyledButton>
               <StyledButton
                 onClick={() => {
-                  showID(pratos.id)
-                  setDetailIsVisible(true)
+                  setIdPrato(pratos.id);
+                  setDetailIsVisible(true);
                 }}
               >
                 Ver detalhes do prato
@@ -140,9 +136,8 @@ const PratosDiversos = () => {
           </RestauranteStyled>
         ))}
       </CardsContainer>
-      <Rodape />
     </>
-  );
-};
+  )
+}
 
-export default PratosDiversos;
+export default PratosDiversos

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import {
   CardRestaurantes,
   Imagem,
@@ -13,22 +11,26 @@ import {
   StyledLink,
   StyledLinkSaibaMais,
   Container,
-  CardLoop
+  CardLoop,
+  MsgErro,
+  LinkToDestaque
 } from './styles'
 
-import { useNavigate } from 'react-router-dom'
-
-import Rodape from '../Rodape'
-import Cabecalho from '../Cabecalho'
-import estrela from '../imgs/estrela.png'
 import API from '../API/api'
+import { useNavigate } from 'react-router-dom'
+import estrela from '../imgs/estrela.png'
+import Cabecalho from '../Cabecalho'
+import { useRestaurant } from '../Providers/RestauranteIDProvider/RestauranteIDProvider'
 
 export function Home() {
   const navigate = useNavigate()
   const { restaurantesAPI } = API()
+  const { setIdRestaurante } = useRestaurant()
 
-  const OnClickCheckID = (id: string | number) => {
-    localStorage.setItem('selectedRestaurante', id.toString())
+  const OnClickGrabID = (id: number | string) => {
+    const numericID = (Number(id))
+    setIdRestaurante(numericID)
+
     if (typeof id === 'string') {
       id = id
         .toLowerCase()
@@ -36,7 +38,7 @@ export function Home() {
         .replace(/[\u0300-\u036f]/g, '')
       return navigate(`/${id}`)
     }
-    const turnIdToType1 = restaurantesAPI[Number(id) - 1].tipo
+    const turnIdToType1 = restaurantesAPI[numericID - 1]?.tipo || ''
     const turnIdToType2 = turnIdToType1
       .toLowerCase()
       .normalize('NFD')
@@ -48,9 +50,10 @@ export function Home() {
     <Container>
       <Cabecalho />
       <CardLoop>
-        {restaurantesAPI.map((restaurantes) => (
+      {restaurantesAPI.length > 0 ? (
+        restaurantesAPI.map((restaurantes) => (
           <CardRestaurantes key={restaurantes.id}>
-            <Imagem onClick={() => OnClickCheckID(restaurantes.id)}>
+            <Imagem onClick={() => OnClickGrabID(restaurantes.id)}>
               <StyledLink>
                 <img src={restaurantes.capa} alt="Capa do Restaurante" />
               </StyledLink>
@@ -65,30 +68,31 @@ export function Home() {
               </NomeDoPrato>
               <DescricaoDoPrato>{restaurantes.descricao}</DescricaoDoPrato>
               <StyledLinkSaibaMais
-                onClick={() => OnClickCheckID(restaurantes.id)}
+                onClick={() => OnClickGrabID(restaurantes.id)}
               >
                 Ver mais pratos do restaurante
               </StyledLinkSaibaMais>
               <TagsContainer>
                 <StyledLink>
-                  <TagsDestaque
-                    className={restaurantes.destacado ? 'visible' : ''}
-                    onClick={() => OnClickCheckID('destaques')}
-                  >
-                    Destaque da Semana
-                  </TagsDestaque>
+                  <LinkToDestaque to='/destaque'>
+                    <TagsDestaque className={restaurantes.destacado ? 'visible' : ''}>
+                      Destaque da Semana
+                    </TagsDestaque>
+                  </LinkToDestaque>
                 </StyledLink>
                 <StyledLink>
-                  <TagsTipo onClick={() => OnClickCheckID(restaurantes.id)}>
+                  <TagsTipo onClick={() => OnClickGrabID(restaurantes.id)}>
                     {restaurantes.tipo}
                   </TagsTipo>
                 </StyledLink>
               </TagsContainer>
             </DetalhesDoPrato>
           </CardRestaurantes>
-        ))}
+        ))
+      ) : (
+        <MsgErro>Carregando restaurantes...</MsgErro>
+      )}
       </CardLoop>
-      <Rodape />
     </Container>
   )
 }

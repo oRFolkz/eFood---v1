@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -8,10 +7,14 @@ import {
   MaxWidth,
   TextoHeroCarrinho
 } from './styles'
+
 import logo from '../../imgs/Logo/logo.png'
-import Carrinho from '../../PagesCarrinho/Carrinho/Carrinho'
+import Carrinho from '../../PagesCarrinho/Carrinho'
+import { useCart } from '../../Providers/CartProvider/CartProvider'
 
 function HeroProduto() {
+  const { cart } = useCart()
+  const itensNoCarrinho = cart.length
   const [carrinhoIsVisible, setCarrinhoIsVisible] = useState(false)
 
   return (
@@ -29,7 +32,7 @@ function HeroProduto() {
             <img src={logo} alt="Logo" />
           </Link>
           <TextoHeroCarrinho onClick={() => setCarrinhoIsVisible(true)}>
-            0 produtos(s) no carrinho
+            {itensNoCarrinho} produtos(s) no carrinho
           </TextoHeroCarrinho>
         </MaxWidth>
       </DivHeroProduto>

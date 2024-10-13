@@ -9,6 +9,7 @@ export const DarkDestaque = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
+  cursor: pointer;
 
   &.visible {
     display: flex;
@@ -224,6 +225,25 @@ export const Imagem = styled.div`
     }
   }
 `
+
+export const ImagemHomeDestaque = styled.div`
+  margin: 0rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    max-width: 480px;
+    height: 220px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      filter: brightness(0.7);
+    }
+  }
+`
+
 export const NomeDoPrato = styled.div`
   display: flex;
   justify-content: space-between;

@@ -12,10 +12,26 @@ import {
   DisplayFlex
 } from './styles'
 
-function ConfirmacaoPagamento() {
+
+import { useCart } from '../../Providers/CartProvider/CartProvider'
+
+interface ConfirmacaoPagamentoProps {
+  dadosPagamentoVisible: boolean;
+  setDadosPagamentoVisible: React.Dispatch<React.SetStateAction<boolean>>
+  setPedidoRealizadoVisible: React.Dispatch<React.SetStateAction<boolean>>
+  setDadosEntregaVisible: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
+  dadosPagamentoVisible,
+  setDadosPagamentoVisible,
+  setPedidoRealizadoVisible,
+  setDadosEntregaVisible
+}) => {
+  const { total }= useCart()
   return (
-    <CardDadosPagamento>
-      <TextoPagamento>Pagamento - Valor a pagar R$ 190,90 </TextoPagamento>
+    <CardDadosPagamento className={dadosPagamentoVisible ? '': 'visible'}>
+      <TextoPagamento>Pagamento - Valor a pagar R$ {total.toFixed(2)} </TextoPagamento>
       <TextoPagamento>Nome no cartão</TextoPagamento>
       <TextaAreaCartao></TextaAreaCartao>
       <DisplayFlex>
@@ -38,8 +54,15 @@ function ConfirmacaoPagamento() {
           <TextaAreaAnoVencimento></TextaAreaAnoVencimento>
         </div>
       </DisplayFlex>
-      <BotaoContinuar>Finalizar Pagamento</BotaoContinuar>
-      <BotaoVoltar>Voltar para a edição de endereço</BotaoVoltar>
+      <BotaoContinuar onClick={() => {
+        setDadosPagamentoVisible(false)
+        setPedidoRealizadoVisible(true)
+        }}>
+        Finalizar Pagamento</BotaoContinuar>
+      <BotaoVoltar onClick={() => {
+        setDadosPagamentoVisible(false)
+        setDadosEntregaVisible(true)
+        }}>Voltar para a edição de endereço</BotaoVoltar>
     </CardDadosPagamento>
   )
 }
