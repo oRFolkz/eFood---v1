@@ -12,7 +12,7 @@ import {
   StyledLink,
   StyledLinkSaibaMais,
   CardLoop
-} from '../../Home/styles'
+} from '../styles'
 
 import API from '../../API/api'
 import estrela from '../../imgs/estrela.png'

@@ -15,6 +15,7 @@ export const DarkDestaque = styled.div`
     display: flex;
   }
 `
+
 export const ItemEmDestaque = styled.div`
   display: none;
   color: #ffff;
@@ -52,7 +53,7 @@ export const ItemEmDestaque = styled.div`
 export const ImagemDestaque = styled.div`
   margin: 1rem 0 1rem 1rem;
   min-width: 280px;
-  height: 300px;
+  height: 320px;
 
   img {
     width: 100%;
@@ -60,22 +61,26 @@ export const ImagemDestaque = styled.div`
   }
 
   @media (max-width: 640px) {
-  margin: 1rem;
-  height: 200px;
-  min-width: 0px;
+    margin: 1rem;
+    height: 200px;
+    min-width: 0px;
 
-    img {
-      width: 100%;
-      height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
   }
 `
 export const NomeDoPratoDestaque = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: 900;
-  font-size: 16px;
+  font-size: 24px;
   line-height: 22px;
   margin: 0 0 0 1rem;
+
+    @media (max-width: 720px) {
+    width: 180px;
+  }
 
   @media (max-width: 640px) {
     width: 100%;
@@ -83,14 +88,16 @@ export const NomeDoPratoDestaque = styled.div`
   }
 `
 export const DetalhesDoPratoDestaque = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 0rem 0rem 0 0.5rem;
-  height: 300px;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
   max-width: 620px;
   margin-right: 1rem;
-  height: auto;
+  height: 300px;
 
   @media (max-width: 640px) {
     width: 100%;
@@ -109,8 +116,9 @@ export const DescricaoDoPratoDestaque = styled.div`
     overflow-y: scroll;
     width: 90%;
     height: 200px;
-    margin: 0rem 0 0 1rem;
+    margin: 1rem 0 0 1rem;
   }
+
   @media (max-width: 640px) {
     margin: 1rem 0 0 1rem;
     height: 200px;
@@ -128,11 +136,12 @@ export const BotaoAddCarrinhoDestaque = styled.div`
   font-weight: 700;
   font-size: 14px;
   text-align: center;
-  margin: 0.5rem 0 0rem 1rem;
-  padding: 5px 0;
+  margin: 0rem 0 0rem 1rem;
+  padding: 8px 0 0 0;
   color: #e66767;
   background-color: #ffff;
-  width: 220px;
+  width: 250px;
+  height: 40px;
 
   &:hover {
     transform: scale(1.03);
@@ -150,12 +159,12 @@ export const BotaoFecharDestaque = styled.button`
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 1.8rem;
+  top: 15px;
+  right: 25px;
   cursor: pointer;
-  width: 16px;
-  height: 16px;
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 0.4rem 0.3rem 0.3rem 0.3rem;
 
   @media (max-width: 640px) {
     display: none;

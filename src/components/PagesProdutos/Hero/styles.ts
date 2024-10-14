@@ -52,7 +52,7 @@ export const TextoHeroCarrinho = styled.p`
   border: none;
   width: 250px;
   color: #e66767;
-  text-align: start;
+  text-align: end;
   font-weight: 900;
   font-family: Roboto;
   font-size: 18px;

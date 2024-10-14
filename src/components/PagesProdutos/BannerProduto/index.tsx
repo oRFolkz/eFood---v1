@@ -18,7 +18,7 @@ function BannerProduto() {
   return (
     <Banner>
       <MaxWidth>
-        <TagDoProduto>{tipoDoRestaurante ? tipoDoRestaurante : 'carregando...'}</TagDoProduto>
+        <TagDoProduto>{tipoDoRestaurante ? tipoDoRestaurante : '...'}</TagDoProduto>
         <NomeDoProduto>La dolce vita trattoria</NomeDoProduto>
       </MaxWidth>
     </Banner>

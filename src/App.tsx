@@ -6,7 +6,7 @@ import './index.css'
 import Home from './components/Home'
 import PratosDiversos from './components/PagesProdutos/PratosDiversos'
 import Rodape from './components/Rodape'
-import RestaurantesEmDestaque from './components/PagesProdutos/restauratesEmDestaque'
+import RestaurantesEmDestaque from './components/Home/restauratesEmDestaque'
 import { RestaurantProvider } from './components/Providers/RestauranteIDProvider/RestauranteIDProvider'
 import { CartProvider } from './components/Providers/CartProvider/CartProvider'
 const Rotas = () => (

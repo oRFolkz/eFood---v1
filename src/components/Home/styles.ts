@@ -9,13 +9,14 @@ export const Container = styled.div`
 export const CardRestaurantes = styled.div`
   color: #e66767;
   border: 1px solid #e66767;
-  width: 450px;
+  width: 480px;
   height: 520px;
   position: relative;
 
   &.hideDestaque {
     display: none;
   }
+
   @media (max-width: 500px) {
     height: auto;
     margin: 0 1rem;
@@ -25,12 +26,15 @@ export const CardRestaurantes = styled.div`
 
 export const CardLoop = styled.ul`
   display: flex;
+  max-width: 1050px;
+  margin: auto;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 3rem;
   padding: 1rem 0;
 `
+
 export const Imagem = styled.div`
   overflow: hidden;
 
@@ -42,10 +46,19 @@ export const Imagem = styled.div`
 
     &:hover {
       transform: scale(1.2);
-      filter: brightness(0.7);
+      filter: brightness(0.5);
     }
   }
 `
+
+export const DetalhesDoPrato = styled.div`
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+`
+
 export const NomeDoPrato = styled.div`
   display: flex;
   justify-content: space-between;
@@ -55,35 +68,31 @@ export const NomeDoPrato = styled.div`
   line-height: 22px;
   padding: 5px 8px;
 `
-export const DetalhesDoPrato = styled.div`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-`
+
 export const Nota = styled.div`
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   padding: 5px 8px;
+
   img {
     padding-left: 0.2rem;
     height: 16px;
   }
 `
+
 export const DescricaoDoPrato = styled.div`
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
   padding: 0px 8px;
-  margin-bottom: 20px;
 `
 
 export const TagsContainer = styled.div`
-  color: white;
   display: flex;
   gap: 1rem;
   position: absolute;
-  top: 0px;
+  top: 5px;
   right: 10px;
 `
 
@@ -95,10 +104,10 @@ export const TagsTipo = styled.div`
   background-color: #e66767;
   padding: 5px;
   margin-top: 5px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
 
   &:hover {
-    border: 1px solid white;
+    border: 2px solid white;
     cursor: pointer;
   }
 `
@@ -111,7 +120,7 @@ export const TagsDestaque = styled.div`
   background-color: #e66767;
   padding: 5px;
   margin-top: 5px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   display: none;
 
   &.visible {
@@ -119,14 +128,14 @@ export const TagsDestaque = styled.div`
   }
 
   &:hover {
-    border: 1px solid white;
+    border: 2px solid white;
     cursor: pointer;
   }
 `
 
 export const LinkToDestaque = styled(Link)`
-text-decoration: none;
-cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 `
 
 export const StyledLink = styled.a`
@@ -135,6 +144,7 @@ export const StyledLink = styled.a`
 `
 
 export const StyledLinkSaibaMais = styled.a`
+  width: 220px;
   text-decoration: none;
   color: white;
   font-size: 14px;
@@ -146,6 +156,11 @@ export const StyledLinkSaibaMais = styled.a`
 `
 
 export const MsgErro = styled.p`
+  color: #e66767;
+  font-size: 2rem;
+`
+
+export const LoadingMsg = styled.p`
   color: #e66767;
   font-size: 2rem;
 `
