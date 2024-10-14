@@ -15,6 +15,7 @@ import {
   NomeDoPrato,
   ValorDoPrato,
   BotaoRemoverItemCarrinho,
+  Quantidade,
   EmptyCart
 
 } from './styles'
@@ -35,7 +36,7 @@ const Carrinho: React.FC<CarrinhoProps> = ({
   carrinhoIsVisible,
   setCarrinhoIsVisible
 }) => {
-  const { cart, total } = useCart()
+  const { cart, total, removeItemFromCart } = useCart()
   const [ dadosEntregaVisible, setDadosEntregaVisible ] = React.useState<boolean>(false)
   const [ dadosPagamentoVisible, setDadosPagamentoVisible ] = React.useState<boolean>(false)
   const [ pedidoRealizadoVisible, setPedidoRealizadoVisible ] = React.useState<boolean>(false)
@@ -55,8 +56,9 @@ const Carrinho: React.FC<CarrinhoProps> = ({
               </Imagem>
               <DetalhesDoPrato>
                 <NomeDoPrato>{cartItem.name}</NomeDoPrato>
-                <ValorDoPrato>R$: {cartItem.price.toFixed(2)}</ValorDoPrato>
-                <BotaoRemoverItemCarrinho>
+                <ValorDoPrato>{cartItem.price.toFixed(2)}</ValorDoPrato>
+                <Quantidade>Quantidade: <span>{cartItem.quantity}</span></Quantidade>
+                <BotaoRemoverItemCarrinho onClick={() => removeItemFromCart(cartItem.id)}>
                   <img src={lixeira} alt="" />
                 </BotaoRemoverItemCarrinho>
               </DetalhesDoPrato>
@@ -65,15 +67,15 @@ const Carrinho: React.FC<CarrinhoProps> = ({
         ) : ( <EmptyCart>Seu carrinho está vazio...</EmptyCart> ) }
         <ValorFinalDiv>
           <ValorTotal>Valor Total :</ValorTotal>
-          <ValorDoPedido>R$ {total.toFixed(2)}</ValorDoPedido>
+          <ValorDoPedido>{total < 0 ? 'R$: 0.00' : `R$: ${total.toFixed(2)}`}</ValorDoPedido>
         </ValorFinalDiv>
         {cart.length === 0 ? <p></p> : (
           <BotaoContinuarAsCompras onClick={() => setDadosEntregaVisible(true)}>Continuar a compra</BotaoContinuarAsCompras>
         )}
         <BotaoVoltar
           onClick={() => {
-            setCarrinhoIsVisible(false);
-            setDadosEntregaVisible(false);
+            setCarrinhoIsVisible(false)
+            setDadosEntregaVisible(false)
           }}
         >
           Voltar
@@ -100,4 +102,4 @@ const Carrinho: React.FC<CarrinhoProps> = ({
   )
 }
 
-export default Carrinho;
+export default Carrinho

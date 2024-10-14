@@ -16,7 +16,7 @@ import {
 import { useCart } from '../../Providers/CartProvider/CartProvider'
 
 interface ConfirmacaoPagamentoProps {
-  dadosPagamentoVisible: boolean;
+  dadosPagamentoVisible: boolean
   setDadosPagamentoVisible: React.Dispatch<React.SetStateAction<boolean>>
   setPedidoRealizadoVisible: React.Dispatch<React.SetStateAction<boolean>>
   setDadosEntregaVisible: React.Dispatch<React.SetStateAction<boolean>>

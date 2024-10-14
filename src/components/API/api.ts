@@ -16,41 +16,41 @@ export interface Restaurante {
 }
 
 export interface CardapioItem {
-  foto: string;
-  preco: number;
-  id: number;
-  nome: string;
-  descricao: string;
-  porcao: string;
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
 
 export function API() {
-  const [restaurantesAPI, setRestaurantesAPI] = useState<Restaurante[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [restaurantesAPI, setRestaurantesAPI] = useState<Restaurante[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
 
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Erro ao buscar os dados');
+          throw new Error('Erro ao buscar os dados')
         }
-        return response.json();
+        return response.json()
       })
       .then((data: Restaurante[]) => {
-        setRestaurantesAPI(data);
+        setRestaurantesAPI(data)
       })
       .catch((error) => {
-        setError(error);
+        setError(error)
       })
       .finally(() => {
-        setIsLoading(false);
-      });
-  }, []); // Empty dependency array, fetches data only once on mount
+        setIsLoading(false)
+      })
+  }, [])  // Empty dependency array, fetches data only once on mount
 
-  return { restaurantesAPI, isLoading, error };
+  return { restaurantesAPI, isLoading, error }
 }
 
-export default API;
+export default API

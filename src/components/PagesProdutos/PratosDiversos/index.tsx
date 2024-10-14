@@ -16,11 +16,11 @@ import {
   BotaoFecharDestaque,
   BotaoVoltarDestaque,
   DarkDestaque,
-} from './styles';
+} from './styles'
 
 import API, { CardapioItem } from '../../API/api'
 import { useEffect, useState } from 'react'
-import { useCart } from '../../Providers/CartProvider/CartProvider';
+import { useCart } from '../../Providers/CartProvider/CartProvider'
 import { useRestaurant } from '../../Providers/RestauranteIDProvider/RestauranteIDProvider'
 
 import HeroProduto from '../Hero'
@@ -46,6 +46,7 @@ export function PratosDiversos() {
       price: prato.preco,
       image: prato.foto,
       description: prato.descricao,
+      quantity: 0,
     }
     addToCart(cartItem)
   }
@@ -112,8 +113,8 @@ export function PratosDiversos() {
           <RestauranteStyled key={pratos.id}>
             <Imagem
               onClick={() => {
-                setIdPrato(pratos.id);
-                setDetailIsVisible(true);
+                setIdPrato(pratos.id)
+                setDetailIsVisible(true)
               }}
             >
               <img src={pratos.foto} alt={pratos.nome} />
@@ -126,8 +127,8 @@ export function PratosDiversos() {
               </StyledButton>
               <StyledButton
                 onClick={() => {
-                  setIdPrato(pratos.id);
-                  setDetailIsVisible(true);
+                  setIdPrato(pratos.id)
+                  setDetailIsVisible(true)
                 }}
               >
                 Ver detalhes do prato

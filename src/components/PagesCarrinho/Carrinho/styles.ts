@@ -81,6 +81,7 @@ export const CardItemNoCarrinho = styled.div`
   display: flex;
   margin-bottom: 1rem;
   height: 120px;
+    position: relative;
 `
 
 export const Imagem = styled.div`
@@ -95,7 +96,6 @@ export const Imagem = styled.div`
 export const DetalhesDoPrato = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
 `
 
 export const NomeDoPrato = styled.div`
@@ -115,8 +115,8 @@ export const ValorDoPrato = styled.div`
 
 export const BotaoRemoverItemCarrinho = styled.div`
   position: absolute;
-  bottom: 5px;
-  right: 0px;
+  bottom: 10px;
+  right: 15px;
   cursor: pointer;
 
   img {
@@ -128,4 +128,14 @@ export const BotaoRemoverItemCarrinho = styled.div`
 export const EmptyCart = styled.p`
   color: white;
   margin-bottom: 1rem;
+`
+
+export const Quantidade = styled.p`
+  color: #ee6676;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+
+  span {
+    font-weight: bold
+  }
 `
