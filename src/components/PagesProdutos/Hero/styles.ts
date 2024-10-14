@@ -47,21 +47,20 @@ export const TextoHeroRestaurante = styled.button`
     margin-bottom: 1rem;
   }
 `
-export const TextoHeroCarrinho = styled.button`
+export const TextoHeroCarrinho = styled.p`
   background-color: transparent;
   border: none;
   width: 250px;
   color: #e66767;
-  cursor: pointer;
-  text-align: end;
+  text-align: start;
   font-weight: 900;
   font-family: Roboto;
   font-size: 18px;
   line-height: 18px;
-  cursor: pointer;
 
   @media (max-width: 700px) {
     text-align: center;
     margin-top: 1rem;
+    cursor: none;
   }
 `

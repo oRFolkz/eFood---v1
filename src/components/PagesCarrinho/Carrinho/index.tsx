@@ -56,7 +56,7 @@ const Carrinho: React.FC<CarrinhoProps> = ({
               </Imagem>
               <DetalhesDoPrato>
                 <NomeDoPrato>{cartItem.name}</NomeDoPrato>
-                <ValorDoPrato>{cartItem.price.toFixed(2)}</ValorDoPrato>
+                <ValorDoPrato>R$: {cartItem.price.toFixed(2)}</ValorDoPrato>
                 <Quantidade>Quantidade: <span>{cartItem.quantity}</span></Quantidade>
                 <BotaoRemoverItemCarrinho onClick={() => removeItemFromCart(cartItem.id)}>
                   <img src={lixeira} alt="" />
