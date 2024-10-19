@@ -57,6 +57,7 @@ export const TextoHeroCarrinho = styled.p`
   font-family: Roboto;
   font-size: 18px;
   line-height: 18px;
+  cursor: pointer;
 
   @media (max-width: 703px) {
     text-align: center;

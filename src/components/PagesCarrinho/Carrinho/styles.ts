@@ -80,7 +80,8 @@ export const CardItemNoCarrinho = styled.div`
   background-color: #ffebd9;
   display: flex;
   margin-bottom: 1rem;
-  height: 120px;
+  height: 100px;
+  width: 100%;
   position: relative;
 `
 
@@ -88,8 +89,8 @@ export const Imagem = styled.div`
   margin: 0.5rem;
 
   img {
-    width: 120px;
-    height: 100%;
+    width: 80px;
+    height: 80px;
   }
 
   @media (max-width: 500px) {
@@ -108,8 +109,8 @@ export const DetalhesDoPrato = styled.div`
 export const NomeDoPrato = styled.div`
   margin: 0.5rem 0 0 0.5rem;
   color: #e66767;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 900;
 
   @media (max-width: 500px) {
     font-size: 14px;
@@ -118,7 +119,7 @@ export const NomeDoPrato = styled.div`
 `
 
 export const ValorDoPrato = styled.div`
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   font-weight: 400;
   font-size: 16px;
   padding: 0px 8px;

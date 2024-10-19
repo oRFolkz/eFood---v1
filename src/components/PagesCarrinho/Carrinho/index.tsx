@@ -70,7 +70,7 @@ const Carrinho: React.FC<CarrinhoProps> = ({
           <ValorDoPedido>{total < 0 ? 'R$: 0.00' : `R$: ${total.toFixed(2)}`}</ValorDoPedido>
         </ValorFinalDiv>
         {cart.length === 0 ? <p></p> : (
-          <BotaoContinuarAsCompras onClick={() => setDadosEntregaVisible(true)}>Continuar a compra</BotaoContinuarAsCompras>
+          <BotaoContinuarAsCompras onClick={() => setDadosEntregaVisible(true)}>Continuar com a entrega</BotaoContinuarAsCompras>
         )}
         <BotaoVoltar
           onClick={() => {

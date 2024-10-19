@@ -5,7 +5,7 @@ export const Banner = styled.div`
   background-image: url(${imgProduto});
   background-size: cover;
   width: 100%;
-  height: 220px;
+  height: 280px;
   padding: 0;
   margin: 7rem 0 0 0;
   position: relative;
@@ -52,7 +52,7 @@ export const TagDoProduto = styled.p`
 `
 
 export const NomeDoProduto = styled.h1`
-  padding: 4rem 0 0 0;
+  padding: 8rem 0 0 0;
   margin: 0;
   color: #ffff;
   font-family: Roboto;
