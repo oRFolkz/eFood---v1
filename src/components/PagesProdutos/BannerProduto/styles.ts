@@ -21,17 +21,24 @@ export const Banner = styled.div`
     background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
   }
+
   @media (max-width: 700px) {
     margin: 9rem 0 0 0;
+  }
+
+  @media (max-width: 703px) {
+    display: flex;
+    align-item: center;
+    justify-content: center;
   }
 `
 
 export const MaxWidth = styled.div`
-  max-width: 1200px;
+  max-width: 1024px;
   margin: auto;
 
-  @media (max-width: 1200px) {
-    margin: 0 2rem;
+  @media (max-width: 1055px) {
+    max-width: 670px;
   }
 `
 

@@ -53,7 +53,7 @@ export const ItemEmDestaque = styled.div`
 export const ImagemDestaque = styled.div`
   margin: 1rem 0 1rem 1rem;
   min-width: 280px;
-  height: 320px;
+  height: 300px;
 
   img {
     width: 100%;
@@ -74,11 +74,11 @@ export const NomeDoPratoDestaque = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: 900;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 22px;
   margin: 0 0 0 1rem;
 
-    @media (max-width: 720px) {
+  @media (max-width: 720px) {
     width: 180px;
   }
 
@@ -136,12 +136,11 @@ export const BotaoAddCarrinhoDestaque = styled.div`
   font-weight: 700;
   font-size: 14px;
   text-align: center;
-  margin: 0rem 0 0rem 1rem;
-  padding: 8px 0 0 0;
+  margin: 0.5rem 0 0rem 1rem;
+  padding: 5px 0;
   color: #e66767;
   background-color: #ffff;
-  width: 250px;
-  height: 40px;
+  width: 220px;
 
   &:hover {
     transform: scale(1.03);
@@ -162,8 +161,6 @@ export const BotaoFecharDestaque = styled.button`
   top: 15px;
   right: 25px;
   cursor: pointer;
-  border: 1px solid white;
-  border-radius: 1rem;
   padding: 0.4rem 0.3rem 0.3rem 0.3rem;
 
   @media (max-width: 640px) {
@@ -196,7 +193,7 @@ export const CardsContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   margin: auto;
-  max-width: 1500px;
+  max-width: 1300px;
 
   &.detalhesOpen {
     @media (max-width: 640px) {
@@ -208,6 +205,8 @@ export const RestauranteStyled = styled.div`
   color: #ffff;
   background-color: #e66767;
   max-width: 400px;
+  height: 460px;
+  width: 320px;
   position: relative;
   margin: 1rem;
   padding: 2px 0;
@@ -215,6 +214,10 @@ export const RestauranteStyled = styled.div`
   @media (max-width: 640px) {
     width: 80%;
     margin: 1rem;
+  }
+
+  @media (max-width: 400px) {
+    height: auto;
   }
 `
 export const Imagem = styled.div`
@@ -224,7 +227,7 @@ export const Imagem = styled.div`
   img {
     width: 100%;
     max-width: 480px;
-    height: 220px;
+    height: 170px;
     transition: transform 0.3s ease, filter 0.3s ease;
 
     &:hover {
@@ -273,7 +276,7 @@ export const DescricaoDoPrato = styled.div`
   font-size: 14px;
   line-height: 22px;
   padding: 0px 8px;
-  min-height: 140px;
+  min-height: 180px;
 `
 export const StyledButton = styled.div`
   font-weight: 700;

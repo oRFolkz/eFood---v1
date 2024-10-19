@@ -10,7 +10,7 @@ export const CardRestaurantes = styled.div`
   color: #e66767;
   border: 1px solid #e66767;
   width: 480px;
-  height: 520px;
+  height: 400px;
   position: relative;
 
   &.hideDestaque {
@@ -27,11 +27,12 @@ export const CardRestaurantes = styled.div`
 export const CardLoop = styled.ul`
   display: flex;
   max-width: 1050px;
-  margin: auto;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
   padding: 1rem 0;
 `
 
@@ -41,7 +42,7 @@ export const Imagem = styled.div`
   img {
     width: 100%;
     max-width: 480px;
-    height: 300px;
+    height: 220px;
     transition: transform 0.3s ease, filter 0.3s ease;
 
     &:hover {
@@ -52,11 +53,9 @@ export const Imagem = styled.div`
 `
 
 export const DetalhesDoPrato = styled.div`
-  display: flex;
-  height: 200px;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 0.5rem;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
 `
 
 export const NomeDoPrato = styled.div`
@@ -64,9 +63,9 @@ export const NomeDoPrato = styled.div`
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 22px;
-  padding: 5px 8px;
+  padding: 0px 15px;
 `
 
 export const Nota = styled.div`
@@ -82,10 +81,12 @@ export const Nota = styled.div`
 `
 
 export const DescricaoDoPrato = styled.div`
+  height: 90px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 22px;
-  padding: 0px 8px;
+  line-height: 18px;
+  padding: 0px 10px;
+  margin-bottom: 13px;
 `
 
 export const TagsContainer = styled.div`

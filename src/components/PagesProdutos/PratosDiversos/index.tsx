@@ -125,14 +125,14 @@ export function PratosDiversos() {
               <StyledButton onClick={() => OnClickGrabID(pratos)}>
                 Adicionar ao carrinho
               </StyledButton>
-              <StyledButton
+{/*               <StyledButton
                 onClick={() => {
                   setIdPrato(pratos.id)
                   setDetailIsVisible(true)
                 }}
               >
                 Ver detalhes do prato
-              </StyledButton>
+              </StyledButton> */}
             </DetalhesDoPrato>
           </RestauranteStyled>
         ))}

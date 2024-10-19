@@ -11,18 +11,18 @@ export const DivHeroProduto = styled.div`
 `
 
 export const MaxWidth = styled.div`
-  max-width: 1200px;
-  height: 120px;
+  max-width: 1024px;
   margin: auto;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 1200px) {
-    margin: 0 2rem;
+  @media (max-width: 1055px) {
+    max-width: 670px;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 703px) {
     height: 150px;
     flex-direction: column;
     text-align: center;
@@ -42,7 +42,7 @@ export const TextoHeroRestaurante = styled.button`
   font-size: 18px;
   line-height: 18px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 703px) {
     text-align: center;
     margin-bottom: 1rem;
   }
@@ -58,7 +58,7 @@ export const TextoHeroCarrinho = styled.p`
   font-size: 18px;
   line-height: 18px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 703px) {
     text-align: center;
     margin-top: 1rem;
     cursor: none;
