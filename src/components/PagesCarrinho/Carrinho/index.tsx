@@ -1,5 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ReactNode } from 'react'
+import { useCart } from '../../Providers/CartProvider/CartProvider'
+import { useOrderContext } from '../../APIorder/orderApi'
+
+import lixeira from '../../imgs/lixeira.png'
+import DadosEntrega from '../DadosEntrega'
+import PedidoRealizado from '../PedidoRealizado'
+import ConfirmacaoPagamento from '../ConfirmacaoPagamento'
 
 import {
   Dark,
@@ -19,12 +26,6 @@ import {
   EmptyCart
 
 } from './styles'
-import lixeira from '../../imgs/lixeira.png'
-import { useCart } from '../../Providers/CartProvider/CartProvider'
-import DadosEntrega from '../DadosEntrega'
-import PedidoRealizado from '../PedidoRealizado'
-import ConfirmacaoPagamento from '../ConfirmacaoPagamento'
-
 
 interface CarrinhoProps {
   carrinhoIsVisible: boolean
@@ -34,13 +35,18 @@ interface CarrinhoProps {
 
 const Carrinho: React.FC<CarrinhoProps> = ({
   carrinhoIsVisible,
-  setCarrinhoIsVisible
+  setCarrinhoIsVisible,
 }) => {
   const { cart, total, removeItemFromCart } = useCart()
-  const [ dadosEntregaVisible, setDadosEntregaVisible ] = React.useState<boolean>(false)
-  const [ dadosPagamentoVisible, setDadosPagamentoVisible ] = React.useState<boolean>(false)
-  const [ pedidoRealizadoVisible, setPedidoRealizadoVisible ] = React.useState<boolean>(false)
+  const { setProducts } = useOrderContext()
 
+  useEffect(() => {
+    setProducts(cart)
+  }, [cart, setProducts])
+
+  const [dadosEntregaVisible, setDadosEntregaVisible] = React.useState(false)
+  const [dadosPagamentoVisible, setDadosPagamentoVisible] = React.useState(false)
+  const [pedidoRealizadoVisible, setPedidoRealizadoVisible] = React.useState(false)
 
   return (
     <Dark
@@ -52,7 +58,7 @@ const Carrinho: React.FC<CarrinhoProps> = ({
           cart.map((cartItem) => (
             <CardItemNoCarrinho key={cartItem.id}>
               <Imagem>
-                <img src={cartItem.image} alt="" />
+                <img src={cartItem.image} alt={cartItem.name} />
               </Imagem>
               <DetalhesDoPrato>
                 <NomeDoPrato>{cartItem.name}</NomeDoPrato>
@@ -69,7 +75,7 @@ const Carrinho: React.FC<CarrinhoProps> = ({
           <ValorTotal>Valor Total :</ValorTotal>
           <ValorDoPedido>{total < 0 ? 'R$: 0.00' : `R$: ${total.toFixed(2)}`}</ValorDoPedido>
         </ValorFinalDiv>
-        {cart.length === 0 ? <p></p> : (
+        {cart.length > 0 && (
           <BotaoContinuarAsCompras onClick={() => setDadosEntregaVisible(true)}>Continuar com a entrega</BotaoContinuarAsCompras>
         )}
         <BotaoVoltar
@@ -84,13 +90,20 @@ const Carrinho: React.FC<CarrinhoProps> = ({
         <DadosEntrega
           dadosEntregaVisible={dadosEntregaVisible}
           setDadosEntregaVisible={setDadosEntregaVisible}
-          setDadosPagamentoVisible={setDadosPagamentoVisible}
+          onContinue={() => {
+            setDadosEntregaVisible(false)
+            setDadosPagamentoVisible(true)
+          }}
         />
         <ConfirmacaoPagamento
           dadosPagamentoVisible={dadosPagamentoVisible}
           setDadosPagamentoVisible={setDadosPagamentoVisible}
-          setPedidoRealizadoVisible ={setPedidoRealizadoVisible}
+          setPedidoRealizadoVisible={setPedidoRealizadoVisible}
           setDadosEntregaVisible={setDadosEntregaVisible}
+          onContinue={() => {
+            setDadosPagamentoVisible(false)
+            setPedidoRealizadoVisible(true)
+          }}
         />
         <PedidoRealizado
           pedidoRealizadoVisible={pedidoRealizadoVisible}

@@ -48,7 +48,7 @@ export function API() {
       .finally(() => {
         setIsLoading(false)
       })
-  }, [])  // Empty dependency array, fetches data only once on mount
+  }, [])
 
   return { restaurantesAPI, isLoading, error }
 }

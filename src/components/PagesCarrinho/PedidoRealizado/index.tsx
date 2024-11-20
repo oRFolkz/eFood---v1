@@ -22,11 +22,11 @@ const PedidoRealizado: React.FC<PedidoRealizadoProps> = ({
   setCarrinhoIsVisible
 }) => {
   const { emptyCart } = useCart()
+  const apiData = JSON.parse(localStorage.getItem('apiResponse') || '{}');
 
-  const orderID = 1
   return (
     <CardDadosFinalizado className={pedidoRealizadoVisible ? '' : 'visible'}>
-      <TextoFinalizado>Pedido realizado - ID: {orderID}</TextoFinalizado>
+      <TextoFinalizado>Pedido realizado - ID: {apiData}</TextoFinalizado>
       <MensagemFinal>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.
