@@ -30,6 +30,7 @@ import botaoFechar from '../../imgs/close.png'
 export function PratosDiversos() {
   const { restaurantesAPI } = API()
   const { idRestaurante } = useRestaurant()
+  console.log(idRestaurante)
   const { addToCart } = useCart()
 
   const [detailIsVisible, setDetailIsVisible] = useState(false)
