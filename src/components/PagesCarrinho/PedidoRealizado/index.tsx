@@ -26,7 +26,7 @@ const PedidoRealizado: React.FC<PedidoRealizadoProps> = ({
 
   return (
     <CardDadosFinalizado className={pedidoRealizadoVisible ? '' : 'visible'}>
-      <TextoFinalizado>Pedido realizado - ID: {orderID ? orderID : ''}</TextoFinalizado>
+      <TextoFinalizado>Pedido realizado - ID: {orderID ? '' : orderID}</TextoFinalizado>
       <MensagemFinal>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.
