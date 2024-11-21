@@ -30,7 +30,7 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
   setDadosEntregaVisible,
   onContinue,
 }) => {
-  const { products, delivery, payment, setPayment } = useOrderContext()
+  const { products, delivery, setPayment } = useOrderContext()
   const { total } = useCart()
 
   const [nome, setNome] = useState('')
@@ -40,10 +40,8 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
   const [ano, setAno] = useState('')
 
   const handlePaymentSave = () => {
-    setPayment((prevPayment) => ({
-      ...prevPayment,
+    const updatedPayment = {
       card: {
-        ...prevPayment?.card,
         name: nome,
         number: parseInt(numero, 10),
         code: parseInt(codigo, 10),
@@ -52,25 +50,22 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
           year: parseInt(ano, 10),
         },
       },
-    }))
+    }
+
+    setPayment(updatedPayment)
 
     setPedidoRealizadoVisible(false)
     setDadosPagamentoVisible(false)
     onContinue()
-    handleFinalizarPedido()
+
+    handleFinalizarPedido(updatedPayment)
   }
 
-  const handleFinalizarPedido = async () => {
-    console.log('Dados do pedido:', {
-      products,
-      delivery,
-      payment,
-    })
-
+  const handleFinalizarPedido = async (updatedPayment: any) => {
     const payload = {
       products,
       delivery,
-      payment,
+      payment: updatedPayment,
     }
 
     try {
@@ -82,13 +77,12 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
         body: JSON.stringify(payload),
       })
 
-      console.log('Response status:', response.status)
       if (!response.ok) {
         throw new Error('Falha ao finalizar o pedido.')
       }
 
       const data = await response.json()
-      localStorage.setItem('apiResponse', JSON.stringify(data.orderId));
+      localStorage.setItem('apiResponse', JSON.stringify(data.orderId))
     } catch (error) {
       console.error('Erro ao finalizar pedido:', error)
     }
