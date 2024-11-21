@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ReactNode } from 'react'
 import { useCart } from '../../Providers/CartProvider/CartProvider'
 import { useOrderContext } from '../../APIorder/orderApi'
@@ -47,6 +47,8 @@ const Carrinho: React.FC<CarrinhoProps> = ({
   const [dadosEntregaVisible, setDadosEntregaVisible] = React.useState(false)
   const [dadosPagamentoVisible, setDadosPagamentoVisible] = React.useState(false)
   const [pedidoRealizadoVisible, setPedidoRealizadoVisible] = React.useState(false)
+
+  const [orderID, setOrderID] = useState<string>('')
 
   return (
     <Dark
@@ -100,15 +102,17 @@ const Carrinho: React.FC<CarrinhoProps> = ({
           setDadosPagamentoVisible={setDadosPagamentoVisible}
           setPedidoRealizadoVisible={setPedidoRealizadoVisible}
           setDadosEntregaVisible={setDadosEntregaVisible}
+          setOrderID={setOrderID}
+          orderID={orderID}
           onContinue={() => {
             setDadosPagamentoVisible(false)
             setPedidoRealizadoVisible(true)
-          }}
-        />
+          } } pedidoRealizadoVisible={false}        />
         <PedidoRealizado
           pedidoRealizadoVisible={pedidoRealizadoVisible}
           setPedidoRealizadoVisible={setPedidoRealizadoVisible}
           setCarrinhoIsVisible={setCarrinhoIsVisible}
+          orderID={orderID}
         />
       </Background>
     </Dark>

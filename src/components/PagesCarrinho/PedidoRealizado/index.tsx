@@ -11,6 +11,7 @@ interface PedidoRealizadoProps {
   pedidoRealizadoVisible: boolean
   setPedidoRealizadoVisible: React.Dispatch<React.SetStateAction<boolean>>
   setCarrinhoIsVisible: React.Dispatch<React.SetStateAction<boolean>>
+  orderID: string
 }
 
 const PedidoRealizado: React.FC<PedidoRealizadoProps> = ({
@@ -19,14 +20,15 @@ const PedidoRealizado: React.FC<PedidoRealizadoProps> = ({
   // eslint-disable-next-line react/prop-types
   setPedidoRealizadoVisible,
   // eslint-disable-next-line react/prop-types
-  setCarrinhoIsVisible
+  setCarrinhoIsVisible,
+  // eslint-disable-next-line react/prop-types
+  orderID
 }) => {
   const { emptyCart } = useCart()
-  const orderID = JSON.parse(localStorage.getItem('apiResponse') || '{}');
 
   return (
     <CardDadosFinalizado className={pedidoRealizadoVisible ? '' : 'visible'}>
-      <TextoFinalizado>Pedido realizado - ID: {orderID ? '' : orderID}</TextoFinalizado>
+      <TextoFinalizado>Pedido realizado - ID: {orderID}</TextoFinalizado>
       <MensagemFinal>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.

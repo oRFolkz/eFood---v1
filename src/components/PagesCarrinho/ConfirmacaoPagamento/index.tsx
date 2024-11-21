@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useOrderContext } from '../../APIorder/orderApi'
+import React, { SetStateAction, useState } from 'react';
+import { useOrderContext } from '../../APIorder/orderApi';
 import {
   CardDadosPagamento,
   TextoPagamento,
@@ -11,33 +11,40 @@ import {
   BotaoContinuar,
   BotaoVoltar,
   DisplayFlex,
-} from './styles'
+} from './styles';
 
-import { useCart } from '../../Providers/CartProvider/CartProvider'
+import { useCart } from '../../Providers/CartProvider/CartProvider';
+import PedidoRealizado from '../PedidoRealizado';
 
 interface ConfirmacaoPagamentoProps {
-  dadosPagamentoVisible: boolean
-  setDadosPagamentoVisible: React.Dispatch<React.SetStateAction<boolean>>
-  setPedidoRealizadoVisible: React.Dispatch<React.SetStateAction<boolean>>
-  setDadosEntregaVisible: React.Dispatch<React.SetStateAction<boolean>>
-  onContinue: () => void
+  dadosPagamentoVisible: boolean;
+  setDadosPagamentoVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  setPedidoRealizadoVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  pedidoRealizadoVisible: boolean; // Alterado para boolean
+  setDadosEntregaVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  onContinue: () => void;
+  setOrderID: React.Dispatch<React.SetStateAction<string>>
+  orderID: string
 }
 
 const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
   dadosPagamentoVisible,
   setDadosPagamentoVisible,
   setPedidoRealizadoVisible,
+  pedidoRealizadoVisible,
   setDadosEntregaVisible,
   onContinue,
+  setOrderID,
+  orderID
 }) => {
-  const { products, delivery, setPayment } = useOrderContext()
-  const { total } = useCart()
+  const { products, delivery, setPayment } = useOrderContext();
+  const { total } = useCart();
 
-  const [nome, setNome] = useState('')
-  const [numero, setNumero] = useState('')
-  const [codigo, setCodigo] = useState('')
-  const [mes, setMes] = useState('')
-  const [ano, setAno] = useState('')
+  const [nome, setNome] = useState('');
+  const [numero, setNumero] = useState('');
+  const [codigo, setCodigo] = useState('');
+  const [mes, setMes] = useState('');
+  const [ano, setAno] = useState('');
 
   const handlePaymentSave = () => {
     const updatedPayment = {
@@ -50,23 +57,20 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
           year: parseInt(ano, 10),
         },
       },
-    }
+    };
 
-    setPayment(updatedPayment)
+    setPayment(updatedPayment);
+    onContinue();
 
-    setPedidoRealizadoVisible(false)
-    setDadosPagamentoVisible(false)
-    onContinue()
+    handleFinalizarPedido(updatedPayment);
+  };
 
-    handleFinalizarPedido(updatedPayment)
-  }
-
-  const handleFinalizarPedido = async (updatedPayment: any) => {
+  const handleFinalizarPedido = async (updatedPayment: unknown) => {
     const payload = {
       products,
       delivery,
       payment: updatedPayment,
-    }
+    };
 
     try {
       const response = await fetch('https://fake-api-tau.vercel.app/api/efood/checkout', {
@@ -75,17 +79,23 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Falha ao finalizar o pedido.')
+        throw new Error('Falha ao finalizar o pedido.');
       }
 
       const data = await response.json()
-      localStorage.setItem('apiResponse', JSON.stringify(data.orderId))
-    } catch (error) {
-      console.error('Erro ao finalizar pedido:', error)
+      setOrderID(data.orderId)
+      console.log(data.orderID)
+      } catch (error) {
+      console.error('Erro ao finalizar pedido:', error);
     }
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function setCarrinhoIsVisible(value: SetStateAction<boolean>): void {
+    throw new Error('Function not implemented.');
   }
 
   return (
@@ -116,14 +126,20 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
       <BotaoContinuar onClick={handlePaymentSave}>Finalizar Pagamento</BotaoContinuar>
       <BotaoVoltar
         onClick={() => {
-          setDadosPagamentoVisible(false)
-          setDadosEntregaVisible(true)
+          setDadosPagamentoVisible(false);
+          setDadosEntregaVisible(true);
         }}
       >
         Voltar para a edição de endereço
       </BotaoVoltar>
+      <PedidoRealizado
+        pedidoRealizadoVisible={pedidoRealizadoVisible}
+        setPedidoRealizadoVisible={setPedidoRealizadoVisible}
+        setCarrinhoIsVisible={setCarrinhoIsVisible}
+        orderID={orderID}
+      />
     </CardDadosPagamento>
-  )
-}
+  );
+};
 
-export default ConfirmacaoPagamento
+export default ConfirmacaoPagamento;
