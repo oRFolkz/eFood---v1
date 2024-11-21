@@ -37,18 +37,22 @@ const DadosEntrega: React.FC<DadosEntregaProps> = ({
   const [complemento, setComplemento] = useState('')
 
   const handleAddressSave = () => {
-    setDelivery({
-      receiver: nome,
-      address: {
-        description: endereco,
-        city: cidade,
-        zipCode: parseInt(cep),
-        number: parseInt(numero),
-        complement: complemento || undefined,
-      },
-    })
 
-    onContinue()
+    if (nome.length > 0 && endereco.length > 0 && cidade.length > 0 && cep.length > 0 && numero.length > 0 && complemento.length > 0) {
+      setDelivery({
+        receiver: nome,
+        address: {
+          description: endereco,
+          city: cidade,
+          zipCode: parseInt(cep),
+          number: parseInt(numero),
+          complement: complemento || undefined,
+        },
+      })
+      onContinue()
+    } else {
+      alert('Preencha os dados')
+    }
   }
 
   if (!dadosEntregaVisible) return null

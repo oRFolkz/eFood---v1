@@ -59,13 +59,17 @@ const ConfirmacaoPagamento: React.FC<ConfirmacaoPagamentoProps> = ({
       },
     };
 
-    setPayment(updatedPayment);
-    onContinue();
-
-    handleFinalizarPedido(updatedPayment);
+    if (nome.length > 0 && numero.length > 0 && codigo.length > 0 && mes.length > 0 && ano.length > 0) {
+      setPayment(updatedPayment);
+      onContinue();
+      handleFinalizarPedido(updatedPayment);
+    } else {
+      alert('Preencha os dados')
+    }
   };
 
   const handleFinalizarPedido = async (updatedPayment: unknown) => {
+
     const payload = {
       products,
       delivery,
