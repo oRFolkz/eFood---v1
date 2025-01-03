@@ -81,7 +81,7 @@ export const Nota = styled.div`
 `
 
 export const DescricaoDoPrato = styled.div`
-  height: 90px;
+  height: auto;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
